@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgxLoadersCssModule } from 'ngx-loaders-css';
+
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
@@ -31,6 +33,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
+import { CardModule } from 'primeng/card';
+
+import { CardComponent } from './components/card/card.component';
 import { FormControlComponent } from './components/form-control/form-control.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -43,8 +48,11 @@ const PROVIDERS = [
 const MODULES = [
   ReactiveFormsModule,
   FormsModule,
+  
   NgxLoadersCssModule,
   AngularSvgIconModule,
+
+  // Prime ng components;
   InputTextModule,
   InputMaskModule,
   CheckboxModule,
@@ -73,14 +81,16 @@ const MODULES = [
   ChartModule,
   DialogModule,
   MessageModule,
-  AccordionModule
+  AccordionModule,
+  CardModule
 ];
 
 const COMPONENTS = [
   FormControlComponent,
   OverlayComponent,
   SidebarComponent,
-  HeaderComponent
+  HeaderComponent,
+  CardComponent
 ];
 
 @NgModule({

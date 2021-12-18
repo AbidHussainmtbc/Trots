@@ -12,7 +12,9 @@ import { ManagementRouting } from './management.routing';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { StudentsComponent } from './students/students.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { TutorCardComponent } from './tutors/tutor-card/tutor-card.component';
 import { TutorsComponent } from './tutors/tutors.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { TutorsComponent } from './tutors/tutors.component';
     AddQuizesComponent,
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
-    AdminAuthComponent
+    AdminAuthComponent,
+    TutorCardComponent
   ],
   imports: [
     CommonModule,

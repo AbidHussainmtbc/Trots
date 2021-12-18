@@ -1,0 +1,10 @@
+<div class="card-container" [class]="data.class || 'dashboard-card'">
+    <div class="svg-container">
+        <svg-icon [name]="data.icon"></svg-icon>
+    </div>
+    
+    <div class="details-container">
+        <h4>{{data.title}}</h4>
+        <h2>{{data.value}}</h2>
+    </div>
+</div>

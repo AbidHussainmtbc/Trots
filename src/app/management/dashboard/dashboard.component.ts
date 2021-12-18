@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CardData } from 'src/app/shared/models';
 import { ApiServiceService } from '../../services/api-service.service';
 import { ToastService } from '../../services/toast.service';
 
@@ -9,6 +10,7 @@ import { ToastService } from '../../services/toast.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  dashboardCards: CardData[];
 
   status = {
     labels: ['Eng', 'Bio', 'Math', 'Phy', 'Che'],
@@ -48,9 +50,26 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private apiService: ApiServiceService,
-    private toastService: ToastService
-  ) {
-  }
+    private toastService: ToastService)
+    {
+      this.dashboardCards = [
+        {
+          title: 'Total Students',
+          value: 100,
+          icon: 'students'
+        },
+        {
+          title: 'Total Tutors',
+          value: 100,
+          icon: 'tutors'
+        },
+        {
+          title: 'Total Subjects',
+          value: 100,
+          icon: 'subject'
+        }
+      ]
+    }
 
   ngOnInit(): void {
     this.getSubjects();

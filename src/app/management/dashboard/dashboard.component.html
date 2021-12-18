@@ -1,41 +1,13 @@
 <app-overlay *ngIf="isLoading"></app-overlay>
+
 <div class="dashboard-container">
   <h1 class="panel-heading">Dashboard</h1>
 
   <div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="total-container">
-        <div class="svg-container">
-          <svg-icon name="students"></svg-icon>
-        </div>
-        <div class="details-container">
-          <h4>Total Students</h4>
-          <h2>100</h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="total-container">
-        <div class="svg-container">
-          <svg-icon name="tutors"></svg-icon>
-        </div>
-        <div class="details-container">
-          <h4>Total Tutors</h4>
-          <h2>100</h2>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-12 col-sm-12">
-      <div class="total-container">
-        <div class="svg-container">
-          <svg-icon name="subject"></svg-icon>
-        </div>
-        <div class="details-container">
-          <h4>Total Subjects</h4>
-          <h2>100</h2>
-        </div>
-      </div>
-    </div>
+    <dashboard-card *ngFor="let card of dashboardCards" 
+      class="col-lg-4 col-md-12 col-sm-12" 
+      [data]="card">
+    </dashboard-card>
   </div>
 
   <div class="row">
@@ -132,5 +104,3 @@
     </div>
   </div>
 </div>
-
-
