@@ -1,0 +1,74 @@
+<div class="container">
+<div class="row"><strong>On Site Tutors</strong></div>
+  <div>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="fnPlaceMarker($event)">
+           <agm-marker
+                *ngFor="let m of lstsearchOnsiteTutor_Result"
+                [latitude]="m.latitude"
+                [longitude]="m.longitude"
+              >
+                <agm-info-window>
+                  <div>
+                    <div class="logo-container">
+                      <span class="">
+                        <img class="img" src="assets/images/user-image.png" alt="user-image.png">
+                    </span>
+                    </div>
+                    <strong>{{m.firstname}} {{m.lastname}}</strong><br>
+                    <strong>{{ subjectName }}</strong><br>
+                    <strong><span >   {{m.currency}} {{m.subjectfee}}/hr <img class="mx-1" src="assets/svgs/star-regular.svg" style="width: 20px;" alt="">{{m.rating}}</span> </strong>
+                    <div class="logo-container">
+                      <button id="doBooking" (click)="BookNow(m.id)" hidden >Do Booking</button><br>
+
+
+                      <button (click)="makePayment(m.subjectfee , m.id)">Proceed for Payment</button>
+                    </div>
+                  </div>
+                  
+                </agm-info-window>
+              </agm-marker> 
+
+              <!-- <agm-snazzy-info-window [isOpen]="true" [latitude]="51.673858" [longitude]="7.815982" [closeWhenOthersOpen]="true">
+                <ng-template>
+                  My first Snazzy Info Window!
+                </ng-template>
+              </agm-snazzy-info-window> -->
+    </agm-map>
+  </div> 
+  </div>
+  <div class="row"><strong>On Site Tutors</strong></div>
+
+
+  
+<ng-template #modalData let-modal>
+  <div class="container p-0">
+      <div class="card px-4">
+          <p class="h8 py-3">Payment Details</p>
+          <div class="row gx-3">
+              <div class="col-12">
+                  <div class="d-flex flex-column">
+                      <p class="text mb-1">Person Name</p> <input class="form-control mb-3" type="text" placeholder="Name" value="Barry Allen">
+                  </div>
+              </div>
+              <div class="col-12">
+                  <div class="d-flex flex-column">
+                      <p class="text mb-1">Card Number</p> <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+                  </div>
+              </div>
+              <div class="col-6">
+                  <div class="d-flex flex-column">
+                      <p class="text mb-1">Expiry</p> <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                  </div>
+              </div>
+              <div class="col-6">
+                  <div class="d-flex flex-column">
+                      <p class="text mb-1">CVV/CVC</p> <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                  </div>
+              </div>
+              <div class="col-12">
+                  <div class="btn btn-primary mb-3"> <span class="ps-3">Pay $243</span> <span class="fas fa-arrow-right"></span> </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</ng-template>

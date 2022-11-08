@@ -1,3 +1,286 @@
+<<<<<<< HEAD
+<div class="container cardColor" style="max-height: 75vh; overflow-y: scroll;" [hidden]="showProfile" >
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="border  border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-primary">
+                                <i class="far fa-video "></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Verified</span>
+                                <span class="widget-49-pro-title">{{objtutorCounter.verfiedusers}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="border_Gray  border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-warning">
+                                <i class="fas fa-award ml-4 mr-2"></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Pending</span>
+                                <span class="widget-49-pro-title">{{objtutorCounter.pendingusers}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="border_subject border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-success">
+                                <i class="fal fa-book"></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Decliend</span>
+                                <span class="widget-49-pro-title">{{objtutorCounter.declinedusers}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 mb-3">
+        <canvas id="myChart" width="900" height="250"></canvas>
+    </div>
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let p of lsttutorList | paginate:  {itemsPerPage:6 , currentPage: p } ; let i= index ;" (click)="showUserProfile(p.id)">
+            <div class="card card-margin">
+                <div class="row p-3">
+                    <div class="col-lg-12">
+                        <span>{{p.fullname}}</span>
+                    </div>
+                    <div class="col-lg-12 mt-2 " *ngFor="let k of p.subjects ; let j= index">
+                        <div class="p-3 subjectbg radious_card">
+                            <span class=""> {{k.subjectname}} </span><span class="mr-4 ml-4"> :</span><span class="">
+                                {{k.testPercentage}}/100</span>
+                        </div>
+                    </div>
+                    
+                    <hr class="new1 p-1">
+                    <div class="col-lg-12">
+                        <i class="far fa-phone-alt p-2"></i>
+                        <span class="DateTime">{{p.mobile}}</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="fas fa-envelope p-2"></i>
+                        <span class="DateTime">{{p.email}}</span>
+                    </div>
+                    <!-- <div class="col-lg-12">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-success"  (click)="updatetutorstatus('Accept', i)">Accept</button>
+                            <button class="btn btn-danger ml-1"  (click)="updatetutorstatus('Reject' , i)">Reject</button>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+    <!-- <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div> -->
+    <!-- <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+      </div> -->
+</div>
+
+<!-- //////////Profile -->
+<div class="container cardColor" *ngIf="showProfile"  style="max-height: 75vh; overflow-y: scroll;">
+    <div class="row">
+        <div class="col-lg-8 border-5">
+            <h3>{{completeProfile.fullname}}</h3>
+           
+            <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" (click)="collapseOne()">
+                        Subject
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" [ngClass]="{'show': One == true}" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body" *ngFor="let p of completeProfile.subjects ; let i= index">
+                        <div class="p-3 subjectbg radious_card">
+                            <span class=""> {{p.subjectname}} </span><span class="mr-4 ml-4"> :</span><span class="">
+                                {{p.testPercentage}}/100</span>
+                        </div>
+                        
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" aria-expanded="false" aria-controls="collapseTwo" (click)="collapsetwo()">
+                        Contact
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse " [ngClass]="{'show': two == true}" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                            <i class="far fa-phone-alt p-2"></i>
+                            <span class="DateTime">{{completeProfile.mobile}}</span>
+                        </div>
+                        <div class="col-lg-12">
+                            <i class="fas fa-envelope p-2"></i>
+                            <span class="DateTime">{{completeProfile.email}}</span>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed"  aria-controls="collapseThree" (click)="collapseThree()">
+                        Education
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse "  *ngFor="let q of completeProfile.educationlist ; let j= index" [ngClass]="{'show': Three == true}"  aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="col-lg-12">
+                            <span class="DateTime">{{q.institutename}}, {{q.grade}} ,{{q.passingyear}}</span>
+                        </div>
+
+                        <div class="col-lg-12" *ngIf="q.certificatepath != '' ">
+                            <h4> View File </h4>
+                            <i class="fas fa-file"(click)="viewFile(q.certificatepath)"></i>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 border-5">
+            <h3>Quiz Score</h3>
+            <select class="form-select" aria-label="Default select example" [ngModel]="selectedSub" >
+               <option  *ngFor="let p of completeProfile.subjects ; let i= index">{{p.subjectname}}</option>
+              </select>
+
+            <div class="progress-circle" 
+            
+            [ngClass]="objsubjects.ctgry"
+            >
+                <span>{{objsubjects.testPercentage}}%</span>
+                <div class="left-half-clipper">
+                   <div class="first50-bar"></div>
+                   <div class="value-bar"></div>
+                </div>
+             </div>
+
+             <div class="col-lg-12 mt-2 mb-2">
+                <div class="d-flex justify-content-center">
+                    <!-- <button class="btn btn-success" *ngIf = "objsubjects.testPercentage > 65" (click)="updatetutorstatus('Accept' , 0)">Accept</button>
+                    <button class="btn btn-danger ml-1" *ngIf = "objsubjects.testPercentage < 66" (click)="updatetutorstatus('Reject' , 0)">Reject</button> -->
+                    <button class="btn btn-success"  (click)="updatetutorstatus('Accept' , 0)">Accept</button>
+                    <button class="btn btn-danger ml-1"  (click)="updatetutorstatus('Reject' , 0)">Reject</button>
+                    <button class="btn btn-info ml-1" (click)="Cancel()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="card card-margin"  *ngFor="let k of completeProfile.classesdetails ; let i= index">
+                <div class="row p-3">
+                    <div class="col-lg-8">
+                        <span >{{k.topic}}</span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="subjectbg radious_card">{{k.subjectname}}</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="cls">{{k.classname}}</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="far fa-calendar-alt p-2"></i>
+                        <span class="DateTime">{{k.startdate}}</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="fal fa-clock p-2"></i>
+                        <span class="DateTime">{{k.starttime}} - {{k.endtime}}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- <div class="card card-margin">
+                <div class="row p-3">
+                    <div class="col-lg-8">
+                        <span >Basic Aljabra</span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="subjectbg radious_card">Math</span> 
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="cls">Class 8th</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="far fa-calendar-alt p-2"></i>
+                        <span class="DateTime">Dec-12-2021</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="fal fa-clock p-2"></i>
+                        <span class="DateTime">09:00 - 10:00 am</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-margin">
+                <div class="row p-3">
+                    <div class="col-lg-8">
+                        <span >Basic Aljabra</span>
+                    </div>
+                    <div class="col-lg-4">
+                        <span class="subjectbg radious_card">Math</span> 
+                    </div>
+                    <div class="col-lg-12">
+                        <span class="cls">Class 8th</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="far fa-calendar-alt p-2"></i>
+                        <span class="DateTime">Dec-12-2021</span>
+                    </div>
+                    <div class="col-lg-12">
+                        <i class="fal fa-clock p-2"></i>
+                        <span class="DateTime">09:00 - 10:00 am</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+=======
 <div class="tutors-container">
     <div class="title">Tutors</div>
     <div class="row">
@@ -19,3 +302,4 @@
         </tutor-card>
     </div>
 </div>
+>>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63

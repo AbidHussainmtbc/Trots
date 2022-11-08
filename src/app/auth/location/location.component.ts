@@ -37,6 +37,7 @@ export class LocationComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
+    debugger;
     const countryData = await this.apiService.getCountriesList().toPromise();
     this.countries = countryData.result;
 
@@ -53,50 +54,61 @@ export class LocationComponent implements OnInit {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
         this.zoom = 8;
+        debugger;
         this.getAddress(this.latitude, this.longitude);
       });
     }
   }
 
   getAddress(latitude, longitude): void {
+    debugger;
     this.geoCoder.geocode({ location: { lat: latitude, lng: longitude } },
       (results, status) => {
-      if (status === 'OK') {
-        if (results[0]) {
-          this.zoom = 12;
-          this.address = results[0].formatted_address;
+        if (status === 'OK') {
+
+          debugger
+          if (results[0]) {
+            this.zoom = 12;
+            this.address = results[0].formatted_address;
+          } else {
+            this.toastService.success('No results found');
+          }
         } else {
-          this.toastService.success('No results found');
+          // this.toastService.error(`Geocoder failed due to: ${status}`);
+          console.log(`Geocoder failed due to: ${status}`);
         }
-      } else {
-        // this.toastService.error(`Geocoder failed due to: ${status}`);
-        console.log(`Geocoder failed due to: ${status}`);
-      }
-    });
+      });
   }
 
   UpdateLocation(): void {
-    this.isLoading = true;
-    console.log('location', this.latitude, this.longitude);
+    debugger;
+    if (this.selCountry == undefined) {
+      this.toastService.error("Please select location.");
+    }
+    else {
+      this.isLoading = true;
+      console.log('location', this.latitude, this.longitude);
 
-    const locationInfo = {
-      mode: this.selectedTutorMode,
-      type: this.selectedTutorType,
-      latitude: this.latitude,
-      longitude: this.longitude,
-      country: localStorage.getItem('regUserCountry'),
-      address: this.selCountry.name
-    };
+      const locationInfo = {
+        mode: this.selectedTutorMode,
+        type: this.selectedTutorType,
+        latitude: this.latitude,
+        longitude: this.longitude,
+        country: localStorage.getItem('regUserCountry'),
+        address: this.selCountry.name
+      };
+      sessionStorage.setItem("currencySymbol", this.selCountry.currencySymbol)
+      this.apiService.fnSaveTutorLocationInfo(locationInfo).subscribe(res => {
+        console.log('response from server', res);
+        this.isLoading = false;
 
-    this.apiService.fnSaveTutorLocationInfo(locationInfo).subscribe(res => {
-      console.log('response from server', res);
-      this.isLoading = false;
+        if (res.statuscode === 200) {
+          console.log('info saved');
+          this.router.navigateByUrl('auth/institute');
+        }
+      });
+    }
 
-      if (res.statuscode === 200) {
-        console.log('info saved');
-        this.router.navigateByUrl('auth/institute');
-      }
-    });
   }
 
   fnPlaceMarker(event): void {

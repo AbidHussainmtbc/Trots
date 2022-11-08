@@ -1,0 +1,95 @@
+<app-overlay *ngIf="isLoading"></app-overlay>
+<div class="container-wrapper">
+  <div class="col-lg-6 col-md-12 col-sm-12 login-form flex-column justify-content-around">
+    <div class="d-flex justify-content-center">
+      <svg-icon class="trot-logo" name="app-logo"></svg-icon>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <img class="mw-90" src="assets/images/auth-bg.png" alt="">
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <h3 class="powered-by-text">Powered by <b>Techbloom</b></h3>
+    </div>
+  </div>
+
+  <div class="col-lg-5 col-md-12 col-sm-12 login-form flex-column">
+    <form [formGroup]="profileForm" (submit)="signUp()" autocomplete="off">
+      <div class="d-flex col-md-12 col-sm-12 login-section">
+        <h1 class="register-heading">Create your Account</h1>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 login-section mt-30">
+        <app-form-control>
+          <svg-icon name="user"></svg-icon>
+          <input type="text" class="input-style" formControlName="firstName" id="firstName" pInputText placeholder="First name">
+        </app-form-control>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 login-section mt-10">
+        <app-form-control class="mt-2">
+          <svg-icon name="user"></svg-icon>
+          <input type="text" class="input-style" formControlName="lastName" id="lastName" pInputText placeholder="Last name">
+        </app-form-control>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 login-section mt-10" style="max-width: 430px;">
+        <div class="cc-section mr-3">
+          <img src="assets/svgs/phone.svg" alt="">
+          <p-dropdown [options]="countries" (onChange)="setCountryDialCode($event)" optionLabel="name" [(ngModel)]="selCountry"
+                      [ngModelOptions]="{standalone: true}">
+            <ng-template let-country pTemplate="item">
+              <img class="flag-image" [src]="country?.value.flagSrc" alt="">
+              <span class="ml-1">{{country.label}}</span>
+            </ng-template>
+            <ng-template let-country pTemplate="selectedItem">
+              <img class="flag-image" [src]="country?.value.flagSrc" alt="">
+            </ng-template>
+          </p-dropdown>
+
+          <app-form-control class="cc-code">
+            <input type="text" class="ele-disabled" pInputText placeholder="+92" formControlName="countryCode">
+          </app-form-control>
+        </div>
+
+        <div class="p-0 mt-2">
+          <app-form-control>
+            <input class="input-style pl-1" type="text" formControlName="phoneNumber" id="phoneNumber" pInputText placeholder="Phone Number">
+          </app-form-control>
+        </div>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 login-section mt-2  mt-10">
+        <app-form-control class="mt-2">
+          <svg-icon name="mail"></svg-icon>
+          <input type="text" class="input-style" formControlName="userEmail" id="userEmail" pInputText placeholder="Email" autocomplete="off">
+        </app-form-control>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 login-section mt-10">
+        <app-form-control class="mt-2">
+          <svg-icon name="lock"></svg-icon>
+          <input type="password" class="input-style" pInputText formControlName="userPassword" id="userPassword" placeholder="Password"
+                 autocomplete="off">
+        </app-form-control>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 login-section mt-10">
+        <app-form-control class="mt-2">
+          <svg-icon name="lock"></svg-icon>
+          <input type="password" class="input-style" pInputText formControlName="confirmPassword" id="confirmPassword" placeholder="Confirm Password">
+        </app-form-control>
+      </div>
+
+      <div class="d-flex col-md-12 col-sm-12 mt-50 justify-content-center">
+        <button pButton type="submit" label="Sign Up" class="ui-button-primary btn-signup" [disabled]="isLoading"></button>
+      </div>
+    </form>
+
+    <div class="auth-footer">
+      <span>Already have account</span>
+      <span class="text-sign" (click)="gotoLogin()">Sign in</span>
+    </div>
+  </div>
+</div>

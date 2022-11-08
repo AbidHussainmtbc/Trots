@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { QuizComponent } from './quiz/quiz.component';
 import { AgreementComponent } from './agreement/agreement.component';
 import { AuthMainComponent } from './auth-main/auth-main.component';
 import { InstitutionInfoComponent } from './institution-info/institution-info.component';
@@ -8,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
 import { RegisterComponent } from './register/register.component';
 import { SubjectInformationComponent } from './subject-information/subject-information.component';
-
+import{ComplianceComponent} from './compliance/compliance.component'
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +42,16 @@ const routes: Routes = [
       {
         path: 'agreement',
         component: AgreementComponent
+      }
+      ,
+      {
+        path: 'Compliance',
+        component: ComplianceComponent
+      },
+      
+      {
+        path: 'quiz',
+        component: QuizComponent
       }
     ]
   }

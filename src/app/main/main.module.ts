@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from 'angular-responsive-carousel';
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
@@ -15,12 +18,12 @@ import { MainComponent } from './main/main.component';
     ContactComponent,
     MainPrivacyPolicyComponent,
     MainTermsAndConditionsComponent
-
   ],
   imports: [
     CommonModule,
     SharedModule,
-    MainRouting
+    MainRouting,
+    NgbModule,
   ]
 })
 export class MainModule {

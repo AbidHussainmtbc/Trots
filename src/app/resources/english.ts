@@ -1,0 +1,9 @@
+export const Student= "Student"
+export const AsTutor= "As Tutor"
+export const SignUpAsAStudent ="SIGNUP AS A STUDENT";
+export const SignUpAsATutor ="SIGNUP AS A TUTOR";
+export const Forgotpassword ="Forgot password?"
+export const Home="Home"
+export const TermsAndConditions = "Terms & Conditions"
+export const ContactUs = "Contact Us"
+export const Login = "Login"

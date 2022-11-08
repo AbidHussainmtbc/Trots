@@ -9,7 +9,7 @@ import { ToastService } from './toast.service';
 
 export class UtilsService {
   scaleRatio;
-
+  
   static getErrorMsg(formControl: AbstractControl, customError = {}): string {
     const errors = formControl.errors;
     let error = '';

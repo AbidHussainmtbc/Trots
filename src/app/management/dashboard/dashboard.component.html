@@ -1,13 +1,51 @@
+<div class="container cardColor" style="max-height: 75vh; overflow-y: scroll;">
+ 
 <app-overlay *ngIf="isLoading"></app-overlay>
 
 <div class="dashboard-container">
   <h1 class="panel-heading">Dashboard</h1>
 
   <div class="row">
+<<<<<<< HEAD
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="total-container">
+        <div class="svg-container">
+          <svg-icon name="students"></svg-icon>
+        </div>
+        <div class="details-container">
+          <h4>Total Students</h4>
+          <h2>{{objtutorCounter.totalstudents}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="total-container">
+        <div class="svg-container">
+          <svg-icon name="tutors"></svg-icon>
+        </div>
+        <div class="details-container">
+          <h4>Total Tutors</h4>
+          <h2>{{objtutorCounter.totaltutors}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="total-container">
+        <div class="svg-container">
+          <svg-icon name="subject"></svg-icon>
+        </div>
+        <div class="details-container">
+          <h4>Total Subjects</h4>
+          <h2>{{objtutorCounter.totalsubjects}}</h2>
+        </div>
+      </div>
+    </div>
+=======
     <dashboard-card *ngFor="let card of dashboardCards" 
       class="col-lg-4 col-md-12 col-sm-12" 
       [data]="card">
     </dashboard-card>
+>>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
   </div>
 
   <div class="row">
@@ -15,7 +53,7 @@
       <div class="status-container">
         <h3>Status</h3>
         <div class="graph-container">
-          <p-chart type="bar" [data]="status"></p-chart>
+          <p-chart type="bar" [data]="status" [options]="chartOptions"></p-chart>
         </div>
       </div>
     </div>
@@ -30,23 +68,23 @@
               <div class="circle"></div>
               <div>
                 <h5>Verified</h5>
-                <h3>100</h3>
+                <h3>{{PietutorCounter.verfiedusers}}</h3>
               </div>
 
             </div>
             <div>
               <div class="circle"></div>
               <div>
-                <h5>Verified</h5>
-                <h3>100</h3>
+                <h5>Pending</h5>
+                <h3>{{PietutorCounter.pendingusers}}</h3>
               </div>
 
             </div>
             <div>
               <div class="circle"></div>
               <div>
-                <h5>Verified</h5>
-                <h3>100</h3>
+                <h5>Rejected</h5>
+                <h3>{{PietutorCounter.declinedusers}}</h3>
               </div>
 
             </div>
@@ -61,25 +99,25 @@
       <div class="students-container">
         <h3>Recent Students</h3>
         <div class="table-container">
-          <p-table [value]="students" [paginator]="true" [rows]="4">
+          <p-table [value]="lstStudent" [paginator]="true" [rows]="4">
             <ng-template pTemplate="header">
               <tr>
-                <th>#</th>
+                <!-- <th>#</th> -->
                 <th>Name</th>
                 <th>ID</th>
                 <th>Class</th>
               </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-student>
+            <ng-template pTemplate="body" let-lstStudent>
               <tr>
-                <td>
-                  <img class="student-image" [src]="student.image" alt="student-image">
-                </td>
-                <td>{{student.name}}</td>
-                <td>{{student.id}}</td>
+                <!-- <td>
+                  <img class="student-image" [src]="lstStudent.image" alt="student-image">
+                </td> -->
+                <td>{{lstStudent.name}}</td>
+                <td>{{lstStudent.id}}</td>
                 <td>
                   <div class="class-container">
-                    {{student.class}}
+                    {{lstStudent.classname}}
                   </div>
                 </td>
               </tr>
@@ -93,9 +131,9 @@
         <h3>Subjects</h3>
         <div class="subjects-name-container">
           <div class="row">
-            <ng-container *ngFor="let subject of subjects">
+            <ng-container *ngFor="let subject of lstdashboardSubject">
               <div class="col-lg-6">
-                <span>{{subject.name}}</span>
+                <span>{{subject.subjectname}}</span>
               </div>
             </ng-container>
           </div>
@@ -103,4 +141,10 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+</div>
+
+
+=======
+>>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
 </div>

@@ -21,7 +21,7 @@
 }
 
 .institute-section {
-  padding: 25px 45px;
+  padding: 25px 10px;
 
   svg-icon {
     position: absolute;
@@ -42,3 +42,9 @@
   align-items: center;
 }
 
+.fontFile {
+    font-size: 17px;
+    line-height: 25px;
+    letter-spacing: 0.03em;
+    color: rgba(196, 196, 196, 0.85);
+}

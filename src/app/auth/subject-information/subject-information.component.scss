@@ -4,7 +4,7 @@
   border-radius: 10px;
 
   .subject-section {
-    padding: 30px 70px;
+    padding: 30px 0px;
 
     .heading {
       font-style: normal;
@@ -19,7 +19,7 @@
       margin-top: 30px;
       border-radius: 8px;
       border: 1px solid rgba(202, 41, 249, 0.3);
-      padding: 15px 40px;
+      padding: 15px 0px;
       max-height: 380px;
     }
 
@@ -165,7 +165,21 @@
     padding-right: 10px;
     cursor: pointer;
   }
-
+ @media only screen and (max-width:320px){
+  .ui-radiobutton-label {
+    margin-left: 8px;
+    margin-bottom: 2px;
+    letter-spacing: 0.055em;
+    color: rgba(51, 51, 51, 0.59);
+    max-width: 220px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 10px;
+    cursor: pointer;
+    font-size: 11px !important;
+}
+ }
   .ui-label-active {
     color: rgba(79, 152, 228, 1);
   }

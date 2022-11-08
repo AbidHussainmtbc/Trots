@@ -10,21 +10,21 @@
         <div class="subject-section">
           <h3 class="heading">Select Subject</h3>
           <div class="listing">
-            <div class="d-flex justify-content-around">
-              <div class="cat-list">
+            <div class="d-flex row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6 cat-list">
                 <h3 class="list-heading">General Category</h3>
                 <div class="cat-list-data">
-                  <div class="list-data" *ngFor="let genCat of generalCategory">
-                    <p-radioButton name="generalSubject" [(ngModel)]="selGenCategory" [label]="genCat.name" [value]="genCat">
+                  <div class="list-data" *ngFor="let genCat of subjectswithcategories;  let i= index">
+                    <p-radioButton name="generalSubject" [(ngModel)]="selGenCategory" (click)="selected(i)" [label]="genCat.subjecname" [value]="genCat">
                     </p-radioButton>
                   </div>
                 </div>
               </div>
 
-              <div class="cat-list">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-6 cat-list">
                 <h3 class="list-heading">Sub category</h3>
                 <div class="cat-list-data">
-                  <div class="list-data" *ngFor="let subCat of subCategory">
+                  <div class="list-data" *ngFor="let subCat of subjectswithcategories[selectedindex].categorylist">
                     <p-radioButton name="subSubject" [(ngModel)]="selSubCategory" [label]="subCat.name" [value]="subCat">
                     </p-radioButton>
                   </div>
@@ -40,10 +40,26 @@
           </div>
         </div>
 
-<!--        <div *ngFor="let newSub of selectedSubjects" class="subject-bg">-->
-<!--          <div>{{newSub.subjectInfo.name}}</div>-->
-<!--          <div>{{newSub.classInfo.name}}</div>-->
-<!--        </div>-->
+        <div class="row subject-bg">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">General Category</th>
+                <th scope="col">Subject Category</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let newSub of selectedSubjects ; let i= index">
+                <th scope="row">{{i +1}}</th>
+                <td>{{newSub.subjectInfo.name}}</td>
+                <td>{{newSub.classInfo.name}}</td>
+                <td><i class="far fa-trash-alt" (click)="remove(i)"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div *ngIf="!selectSubject" class="col-lg-9 col-md-12 col-sm-12 subject-bg">
@@ -58,8 +74,8 @@
                 <div class="col-lg-6 p-10">{{subData.classInfo.name}}</div>
               </div>
               <div class="sub-description">
-                <div class="d-flex justify-content-between">
-                  <div class="col-lg-6 col-md-12 col-sm-12 mt-10">
+                <div class="d-flex row justify-content-between">
+                  <div class="col-lg-5 col-md-12 col-sm-12 mt-10">
                     <h4 class="detail-heading">From Time</h4>
                     <div class="d-flex justify-content-center">
                       <p-inputMask class="mt-10 col-lg-8 detail-info" [(ngModel)]="subData.timefrom" mask="99:99"
@@ -67,7 +83,7 @@
 <!--                      <input  type="text" pInputText placeholder="From Time">-->
                     </div>
                   </div>
-                  <div class="field-spilt"></div>
+                  <div class="col-lg-1 field-spilt"></div>
                   <div class="col-lg-6 col-md-12 col-sm-12 mt-10">
                     <h4 class="detail-heading">To Time</h4>
                     <div class="d-flex justify-content-center">
@@ -77,14 +93,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                  <div class="col-lg-6 col-md-12 col-sm-12 mt-10">
-                    <h4 class="detail-heading">Fees</h4>
+                <div class="d-flex row justify-content-between">
+                  <div class="col-lg-5 col-md-12 col-sm-12 mt-10">
+                    <h4 class="detail-heading">Fee/Hour</h4>
                     <div class="d-flex justify-content-center">
-                      <input class="mt-10 col-lg-8 detail-info" [(ngModel)]="subData.subjectfee" type="text" pInputText placeholder="Enter Amount">
+                      <input class="mt-10 col-lg-8 detail-info" [(ngModel)]="subData.subjectfee" type="text" pInputText placeholder= {{currencySymbol}}>
                     </div>
                   </div>
-                  <div class="field-spilt"></div>
+                  <div class="col-lg-1 field-spilt"></div>
                   <div class="col-lg-6 col-md-12 col-sm-12 mt-10">
                     <h4 class="detail-heading">Experience</h4>
                     <div class="d-flex justify-content-center">

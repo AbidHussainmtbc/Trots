@@ -1,0 +1,51 @@
+:host::ng-deep {
+
+    .ui-dropdown-panel {
+      width: 100%;
+    }
+  
+    .ui-dropdown .ui-dropdown-trigger {
+      width: unset;
+      top: -4px;
+    }
+  
+    .pi-chevron-down:before {
+      content: url('../../../assets/images/Polygon 4.png');
+    }
+  }
+  
+  .institute-bg {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+  }
+  
+  .institute-section {
+    padding: 25px 10px;
+  
+    svg-icon {
+      position: absolute;
+      z-index: 10;
+      top: 17px;
+      left: 20px;
+    }
+  
+    .ui-inputtext {
+      padding: 15px 0 15px 55px;
+      border-radius: 8px;
+    }
+  }
+  
+  .institute-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .fontFile {
+      font-size: 17px;
+      line-height: 25px;
+      letter-spacing: 0.03em;
+      color: rgba(196, 196, 196, 0.85);
+  }
+  

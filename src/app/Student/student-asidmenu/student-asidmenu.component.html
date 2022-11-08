@@ -1,0 +1,90 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <img src="/assets/images/app-logo.png" alt="app-logo.png">
+              </div>
+        </div>
+
+        <ul class="list-unstyled components download list-inline mx-auto justify-content-center">
+            
+            <li routerLink="../std/StudentDashboard" (click)="setFormName('Student Dashboard')" class="list-inline-item">
+                <a > <i class="fas fa-border-all ml-4 mr-2"></i>Dashboard</a>
+            </li>
+            <!-- <li routerLink="../std/StudentClassroom" (click)="setFormName('Student Classroom')">
+                <a ><i class="far fa-video  ml-4 mr-2"></i>Class Room</a>
+            </li> -->
+            <li routerLink="../std/StudentNotifications" (click)="setFormName('Student Notifications')">
+                <a ><i class="far fa-user ml-4 mr-2"></i>Notifications</a>
+            </li>
+               <li  routerLink="../std/BookATutor" (click)="setFormName('Book A Tutor')">
+                <a ><i class="fas fa-award ml-4 mr-2"></i>Book A Tutor</a>
+            </li>
+            <!-- <li   routerLink="../std/SearchOnlineTutor" (click)="setFormName('Search Online Tutor')">
+                <a ><i class="far fa-star ml-4 mr-2"></i>Search Online Tutor</a>
+            </li>
+            <li routerLink="../std/searchOflineTutor" (click)="setFormName('Search OflineF Tutor')">
+                <a><i class="fal fa-book ml-4 mr-2"></i>Search Ofline Tutor</a>
+            </li>
+            <li routerLink="../std/OnSiteTutorSearch" (click)="setFormName('Onsite Tutors')">
+                <a><i class="fal fa-book ml-4 mr-2"></i>On Site Tutor Search</a>
+            </li> -->
+             <li routerLink="../std/Subject" (click)="setFormName('Subject')">
+                <a><i class="fal fa-book ml-4 mr-2"></i>Subject</a>
+            </li>
+        </ul>
+
+        <!-- <ul class="list-unstyled CTAs">
+            <li>
+                <a href="#"><i class="fal fa-sign-out-alt"></i>Logout</a>
+            </li>
+        </ul> -->
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <!-- <button type="button" id="sidebarCollapse" class="btn btn-info"> -->
+                    <!-- <i class="fas fa-align-left"></i> -->
+                    <span>{{FormName}}</span>
+                <!-- </button> -->
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto ">
+                        <li class="nav-item active ">
+                            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            <input type="text" class="form-control" placeholder="Search Here">
+                        </li>
+                        <li class="nav-item">
+                            <i class="far fa-envelope ml-2 mr-2 mt-2"></i>
+                        </li>
+                        <li class="nav-item">
+                            <i class="far fa-bell ml-2 mr-2 mt-2"></i>
+                        </li>
+                        <li class="nav-item">
+                            <span class="">{{UserName}}
+                                <img class="img" src="assets/images/user-image.png" alt="user-image.png">
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <router-outlet></router-outlet>
+        </div>
+</div>
+  <script>
+      $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+  </script>

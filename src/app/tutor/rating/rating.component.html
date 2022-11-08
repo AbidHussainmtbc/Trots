@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+    <div class="row">
+        <table class="table table_bg table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Subjects </th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of allRating">
+                    <td scope="row"><img class="img" src="assets/images/user-image.png" alt="user-image.png"></td>
+                    <td>{{item.subjectname}}</td>
+                    <td>{{item.bookingid}}</td>
+                    <td>{{item.topic}}</td>
+                    <td><span class="subjectbg">8th</span></td>
+                    <td>
+                        <span class="fa fa-star" *ngIf="item.rating >= 1"></span>
+                        <span class="fa fa-star" *ngIf="item.rating >= 2"></span>
+                        <span class="fa fa-star" *ngIf="item.rating >= 3"></span>
+                        <span class="fa fa-star" *ngIf="item.rating >= 4"></span>
+                        <span class="fa fa-star" *ngIf="item.rating >= 5"></span>
+                    </td>
+                    <td><span class="subjectbg">...</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -12,6 +12,7 @@ import { AgreementComponent } from './agreement/agreement.component';
 import { AgmCoreModule } from '@agm/core';
 import { SubjectInformationComponent } from './subject-information/subject-information.component';
 import { QuestionnairesComponent } from './questionnaires/questionnaires.component';
+import { ComplianceComponent } from './compliance/compliance.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuestionnairesComponent } from './questionnaires/questionnaires.compone
     InstitutionInfoComponent,
     AgreementComponent,
     SubjectInformationComponent,
-    QuestionnairesComponent
+    QuestionnairesComponent,
+    ComplianceComponent
   ],
   imports: [
     CommonModule,

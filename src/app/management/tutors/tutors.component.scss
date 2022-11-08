@@ -1,3 +1,153 @@
+<<<<<<< HEAD
+.border {
+    border: 5px solid #4F98E4 !important;
+    border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.border_Gray {
+    border: 5px solid #A182F1 !important;
+    border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.border_subject {
+    border: 5px solid #3B5999 !important;
+    border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.table_bg{
+    background-color: #ffffff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.img {
+    max-width: 30%;
+    height: auto;
+}
+.subjectbg{
+    padding:4%;
+    color:#F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+.cls{
+    color: #B1BAC5;
+    font-size: 13px;
+}
+.DateTime{
+    font-size: 12px;
+}
+.subjectbg_card{
+    padding:5%;
+    color:#F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+.radious_card{
+  border-radius: 8px 8px;
+  font-size: 12px;
+}
+.icon-cog {
+    color: blue;
+  }
+
+
+  .graph-container {
+    background: #FFFFFF;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    padding: 3em;
+  }
+
+  .cardColor{
+    background: #FFFFFF;
+  }
+  .hr.new1 {
+    border-top: 1px solid gray;
+  }
+
+
+
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
+
+
+  .subjectbg{
+    padding:5%;
+    color:#F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+.cls{
+    color: #B1BAC5;
+    font-size: 13px;
+}
+.DateTime{
+    font-size: 12px;
+}
+.subjectbg_card{
+    padding:5%;
+    color:#F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+.radious_card{
+  border-radius: 8px 8px;
+  font-size: 12px;
+}
+  
+
+.left-half-clipper { 
+  /* a round circle */
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  position: absolute; /* needed for clipping */
+  clip: rect(0, 5em, 5em, 2.5em); /* clips the whole left half*/ 
+}
+
+.progress-circle:not(.over50) .first50-bar{ display: none; }
+.progress-circle.p66 .value-bar { transform: rotate(238deg); }
+
+
+.progress-circle.p10 .value-bar { transform: rotate(36deg); } 
+
+.progress-circle.over50 .first50-bar {
+  /*Progress bar for the first 50%, filling the whole right half*/
+  position: absolute; /*needed for clipping*/
+  clip: rect(0, 5em, 5em, 2.5em);
+  background-color: #21b3c0;
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+=======
 .tutors-container {
     padding: 0 10px 10px 10px;
 
@@ -6,4 +156,5 @@
         font-weight: 600;
         margin: 15px 0;
     }
+>>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
 }

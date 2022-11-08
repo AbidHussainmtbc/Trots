@@ -1,0 +1,54 @@
+<app-overlay *ngIf="isLoading"></app-overlay>
+<div class="container-wrapper">
+  <div class="col-lg-12 col-md-12 col-sm-12 flex-column align-items-center justify-content-center">
+    <div class="d-flex justify-content-center mt-25">
+      <svg-icon name="page-logo"></svg-icon>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <div class="col-lg-9 col-md-12 col-sm-12 agreement-bg">
+        <div class="agreement-section">
+          <h3 class="section-heading" style="text-align: center">MODIFICATIONS TO TERMS OF USE</h3>
+          <p style="font-size: 90%; text-align: justify;">Please carefully read the following Terms of Use (“Terms”) before using the Trots application (“Trots tutor,” “the Application,” or “we”).By accessing and using this application, the User (“you”) acknowledge that you have read and understood and agree to be bound by these Terms, which form an agreement that is as effective as if you had signed it. If it any time you do not agree to these Terms, your permission to access or use Trots tutor or any of its content is automatically and immediately revoked. Your access to, use of and browsing of the site and its contents are subject to all Terms of Use contained herein, the Privacy Policy and all applicable laws and regulations.
+          <!-- <span class="description mt-20" style="text-align: center"> -->
+            Trots reserves the right to modify these Terms and the Privacy Policy at any time. The Users are held responsible to periodically review the most current Terms. Their continued use of the Application following the posting of such change constitutes their acceptance of the amended Terms of Use. After incorporation of the new content in the Terms and the Privacy Policy, the users shall declare to have read and accepted the new content and all of its content. In case of modification of any of the content in these Terms and of Use and Privacy Policy under sentence or judgment given by a competent court or under an award made by an arbitrator or by a court of arbitration, the other content that have not been modified, changed, or resolved remain in force and shall be valid for both parties.
+            Trots tutor is an app that will cater all your educational needs, it will certainly help you to find the right tutor for your needs according to your demands at the price range that works best for you. It connects the customer. The Trots are going to client as an extension of TROTS and hence the services rendered by the trots to the Client. Now the question which arises is that what differentiates us from other models is that we are offering and selling Services instead of Trots, therefore, end to end delivery and Quality Assurance of service is TROTS\'s Responsibility. Moreover, the Trots has the most qualified and experienced staff members for every profession under its belt. Most services can be performed from your home, workplace or online. The others can be carried out in our state-of-the-art educational centre in London. For value-for-money fixed rates and unbeatable customer service, choose Trots. The information shared by the users may contain personal information of the Trots. The collection, use and disclosure of this information is governed by the Privacy Policy.
+          </p>
+          <!-- <span style="text-align: center">The content available through the Application is the sole and exclusive property of Trots tutor. Ltd. You agree not to reproduce, duplicate, copy, sell, resell or exploit for any commercial purpose, any portion of the Application other than as expressly authorized by Trots Pvt. Ltd in writing. Use of the Application in any way not expressly permitted by these Terms is prohibited, and may be actionable under the international law.</span> -->
+          <div class="mt-50">
+            <div>
+              <p-checkbox label="I accept terms & Condition" [binary]="true" [(ngModel)]="acceptTerms"></p-checkbox>
+            </div>
+
+            <div class="mt-40 col-lg-6 col-md-12 col-sm-12 p-unset">
+              <input type="text" pInputText id="eSig" placeholder="Enter your Signature" [(ngModel)]="eSig">
+            </div>
+
+            <div class="mt-40">
+              <p-checkbox label="Use this as E-Signature" [binary]="true" [(ngModel)]="useESig"></p-checkbox>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-30">
+      <div class="col-lg-9 col-md-12 col-sm-12 agreement-footer">
+        <div>
+          <button class="btn-back ui-button-primary" (click)="navigateToUrl('std/Reg/StudentLocation')" pButton label="Back" type="button">
+            <svg-icon name="back"></svg-icon>
+          </button>
+        </div>
+
+        <div>
+          <button class="btn-next ui-button-primary" (click)="finishsignup()" pButton label="Next" type="button">
+            <svg-icon name="next"></svg-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

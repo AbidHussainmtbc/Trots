@@ -14,6 +14,9 @@ import { StudentsComponent } from './students/students.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { TutorCardComponent } from './tutors/tutor-card/tutor-card.component';
 import { TutorsComponent } from './tutors/tutors.component';
+import { QuizComponent } from '../auth/quiz/quiz.component';
+// import { JwPaginationComponent } from 'jw-angular-pagination';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -29,12 +32,18 @@ import { TutorsComponent } from './tutors/tutors.component';
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
     AdminAuthComponent,
+<<<<<<< HEAD
+    QuizComponent,
+    // JwPaginationComponent
+=======
     TutorCardComponent
+>>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
   ],
   imports: [
     CommonModule,
     SharedModule,
-    ManagementRouting
+    ManagementRouting,
+    NgxPaginationModule
   ]
 })
 

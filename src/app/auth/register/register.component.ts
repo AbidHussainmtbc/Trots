@@ -45,34 +45,80 @@ export class RegisterComponent implements OnInit {
       }
     });
 
-    this.selCountry =  this.countries[1];
+    this.selCountry = this.countries[1];
     this.profileForm.controls.countryCode.setValue(this.selCountry.dial_code);
     localStorage.setItem('regUserCountry', this.selCountry.name);
   }
 
   signUp(): void {
-    this.isLoading = true;
-    if (this.profileForm.invalid) {
-      return this.utilsService.validateAllFormFields(this.profileForm);
+    debugger;
+
+    // if (this.profileForm.invalid) {
+    //   return this.utilsService.validateAllFormFields(this.profileForm);
+    // }
+    if (this.checkValidation()) {
+      // alert('test')
+      this.isLoading = true;
+      this.apiService.fnRegisterUser(this.profileForm.value, true).subscribe(rtnData => {
+        this.isLoading = false;
+        debugger;
+        if (rtnData.statuscode === 200) {
+          console.log('navigate to respective location');
+          localStorage.setItem('regUserGuid', rtnData.userguid);
+
+          this.router.navigateByUrl('auth/user-loc');
+        } else {
+          this.toastService.error(rtnData.message);
+        }
+      });
+    }
+  }
+  checkValidation() {
+    if (this.isNullOrEmpty(this.profileForm.value.firstName)) {
+      this.toastService.error("Please enter First Name.");
+      return false;
+    }
+    else if (this.isNullOrEmpty(this.profileForm.value.lastName)) {
+      this.toastService.error("Please enter Last Name.");
+      return false;
+    }
+    else if (this.isNullOrEmpty(this.profileForm.value.countryCode)) {
+      this.toastService.error("Please enter country code.");
+      return false;
     }
 
-    // this.toastService.success('Info Saved');
-    this.apiService.fnRegisterUser(this.profileForm.value, true).subscribe(rtnData => {
-      this.isLoading = false;
 
-      if (rtnData.statuscode === 200) {
-        console.log('navigate to respective location');
-        localStorage.setItem('regUserGuid', rtnData.userguid);
-
-        this.router.navigateByUrl('auth/user-loc');
-      } else {
-        this.toastService.error(rtnData.message);
-      }
-    });
+    else if (this.isNullOrEmpty(this.profileForm.value.phoneNumber)) {
+      this.toastService.error("Please enter phone number.");
+      return false;
+    }
+    else if (this.isNullOrEmpty(this.profileForm.value.userEmail)) {
+      this.toastService.error("Please enter user email.");
+      return false;
+    }
+    else if (this.isNullOrEmpty(this.profileForm.value.userPassword)) {
+      this.toastService.error("Please enter Password");
+      return false;
+    }
+    else if (this.isNullOrEmpty(this.profileForm.value.confirmPassword)) {
+      this.toastService.error("Please enter Confirm Password");
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 
+  isNullOrEmpty(str: string) {
+    if (str == "" || str == undefined || str == null) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
   gotoLogin(): void {
-    this.router.navigateByUrl('auth/login');
+    this.router.navigateByUrl('main');
   }
 
   setCountryDialCode(selCountry): void {

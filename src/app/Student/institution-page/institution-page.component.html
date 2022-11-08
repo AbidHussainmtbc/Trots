@@ -1,0 +1,107 @@
+<app-overlay *ngIf="isLoading"></app-overlay>
+<div class="container-wrapper">
+  <div class="col-lg-12 col-md-12 col-sm-12 flex-column align-items-center justify-content-center">
+    <div class="d-flex justify-content-center mt-25">
+      <svg-icon name="page-logo"></svg-icon>
+    </div>
+
+    <div class="d-flex justify-content-center mt-25">
+      <div class="col-lg-9 col-md-12 col-sm-12 institute-bg">
+        <div class="institute-section">
+          <form [formGroup]="instituteForm">
+            <div class="row my-1">
+           
+          </div>
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 d-flex p-unset"> -->
+              <div class="row my-1">
+
+
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <app-form-control>
+                    <p-dropdown class="col-lg-12 col-md-6 col-sm-12" [options]="instituteList" optionLabel="name"
+                                (onChange)="onDropdownItemSelected($event)" formControlName="institute"
+                    placeholder="Level of Education"></p-dropdown>
+                  </app-form-control>
+                </div>
+
+
+
+              <div class="col-lg-6 col-md-12 col-sm-12 col-12 my-1">
+                <app-form-control>
+                  <svg-icon name="organization"></svg-icon>
+                  <input type="text" formControlName="orgName" id="orgName" pInputText placeholder="Organization name">
+                </app-form-control>
+              </div>
+
+            
+            </div>
+
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 d-flex p-unset mt-25"> -->
+              <div class="row my-1">
+              <!-- <div class="col-lg-6 col-md-12 col-sm-12 my-1">
+                <app-form-control>
+                  <svg-icon name="grade"></svg-icon>
+                  <input type="text" formControlName="grade" id="grade" pInputText placeholder="Your Grade (i.e to %)">
+                </app-form-control>
+              </div> -->
+
+              <div class="col-lg-6 col-md-12 col-sm-12 my-1">
+                <app-form-control>
+                  <svg-icon name="calendar"></svg-icon>
+                  <input type="text" formControlName="passYear" id="passYear" pInputText placeholder="Passing year">
+                </app-form-control>
+              </div>
+              
+              <div class="col-lg-6 col-md-12 col-sm-12 my-1">
+                <app-form-control>
+                  <svg-icon name="percent"></svg-icon>
+                  <input type="text" formControlName="percentage" id="percentage" pInputText placeholder="Your Percentage ">
+                </app-form-control>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 p-unset mt-25">
+              <input type="file" (change)="uploadCertificate($event)" hidden #fileInput>
+              <div class="col-lg-12 col-md-12 col-sm-12" (click)="fileInput.click()">
+                <div class="file-selection-box flex-column">
+                  <span>Add your certificate</span>
+                  <img src="assets/svgs/file-attach.svg" alt="">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 p-unset d-flex justify-content-center mt-5">
+              <i class="fas fa-file-pdf" *ngIf="fileName_ext == 'pdf'"></i>
+              <i class="fas fa-file-image" *ngIf="fileName_ext == 'jpg'"></i>
+              <i class="fas fa-file-image" *ngIf="fileName_ext == 'jpeg'"></i>
+              <i class="fas fa-file-image" *ngIf="fileName_ext == 'png'"></i>
+            <span class="justify-content-center ml-5">{{fileName}}</span>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 mt-25">
+              <div class="d-flex justify-content-end">
+                <img class="cursor-pointer" src="assets/svgs/add.svg" alt="" (click)="addInstitute()">
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-25">
+      <div class="col-lg-9 col-md-12 col-sm-12 institute-footer">
+        <div>
+          <button class="btn-back ui-button-primary" (click)="navigateToUrl('std/Reg/StudentSignUp')" pButton label="Back" type="button">
+            <svg-icon name="back"></svg-icon>
+          </button>
+        </div>
+
+        <div>
+          <button class="btn-next ui-button-primary" (click)="fnSaveInstituteInfo()" pButton label="Next" type="button">
+            <svg-icon name="next"></svg-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

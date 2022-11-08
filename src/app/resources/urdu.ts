@@ -1,0 +1,9 @@
+export const Student= "طالب علم"
+export const AsTutor= "بطور ٹیوٹر"
+export const SignUpAsAStudent ="طالب علم کے طور پر سائن اپ کریں";
+export const SignUpAsATutor ="بطور ٹیوٹر سائن اپ کریں";
+export const Forgotpassword ="پاسورڈ بھول گے؟"
+export const Home="ہوم پیج"
+export const TermsAndConditions = "شرائط و ضوابط"
+export const ContactUs = "ہم سے رابطہ کریں"
+export const Login = "لاگ ان کریں"

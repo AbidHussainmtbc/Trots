@@ -57,8 +57,28 @@ agm-map {
   .location-bg {
     padding: 15px;
   }
+  .ui-radiobutton-label {
+    margin-left: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0.055em;
+    color: #333333;
+}
 }
 
+@media only screen and (max-width :320px){
+  .ui-radiobutton-label {
+    margin-left: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    letter-spacing: 0.055em;
+    color: #333333;
+}
+}
 .footer {
   display: flex;
   justify-content: center;

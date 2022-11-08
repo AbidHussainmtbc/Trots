@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 ">
+            <div class="card card-margin monthlyEarning">
+                <div class="card-body pt-0 ">
+                    <div class="widget-49 ">
+                        <div class="widget-49-title-wrapper ">
+                            <div class="widget-49-date-primary">
+                                <i class="far fa-video "></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Monthly Earning</span>
+                                <span class="widget-49-pro-title">{{tutorEarning.monthearning}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 ">
+            <div class="card card-margin weeklyEarning">
+               
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-warning">
+                                <i class="fas fa-award ml-4 mr-2"></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Weekly Earning</span>
+                                <span class="widget-49-pro-title">{{tutorEarning.weekearning}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 ">
+            <div class="card card-margin dailyEarning">
+                <div class="border_subject border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-success">
+                                <i class="fal fa-book"></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Total Earning</span>
+                                <span class="widget-49-pro-title">{{tutorEarning.totalearning}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- <div style="display: block">
+            <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="mbarChartLabels"
+                    [options]="barChartOptions"
+                    [colors]="barChartColors"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+          </div> -->
+          <canvas id="myChart" width="900" height="400"></canvas>
+    </div>
+</div>

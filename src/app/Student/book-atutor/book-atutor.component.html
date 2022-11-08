@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="row ">
+    <div class="col-lg-6 col-md-6 col-sm-6  justify-content-center">
+      <ejs-calendar class="w-100" style="height: 65vh;" id=calendar [value]='value' [min]='minDate' [max]='maxDate'>
+      </ejs-calendar>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 ">
+      <div class="row w-100 ">
+        <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-1">
+          <span class="">Choose Your Subject</span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-0 mx-1">
+          <select class="form-select justify-content-center w-100" (change)="selected($event.target.value)"
+            [(ngModel)]="searchOnsiteTutor.subjectid" aria-label="Default select example">
+            <option *ngFor="let genCat of subjectswithcategories;  let i= index" [value]='genCat.subjectid'>
+              {{genCat.subjecname}}</option>
+
+          </select>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-1">
+          <span class="">Tutor Level</span>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 mx-1 ">
+          <select class="form-select justify-content-center w-100" [(ngModel)]="searchOnsiteTutor.subjectcategoryid"
+            aria-label="Default select example">
+            <option *ngFor="let subCat of subjects" [value]='subCat.id'>{{subCat.name}}</option>
+          </select>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-1">
+          <span class="">Choose Your Fee</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 ">
+          <input type="text" pInputText id="" placeholder="From(Fee/Hour)" [(ngModel)]="searchOnsiteTutor.fromprice">
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <input type="text" pInputText id="" placeholder="To(Fee/Hour)" [(ngModel)]="searchOnsiteTutor.toprice">
+        </div>
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-1">
+          <span class="">Select Time</span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <p-inputMask class="detail-info" [(ngModel)]="searchOnsiteTutor.fromtime" mask="99:99"
+            placeholder="From Time"></p-inputMask>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <p-inputMask class="detail-info" [(ngModel)]="searchOnsiteTutor.totime" mask="99:99" placeholder="To Time">
+          </p-inputMask>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 my-1">
+          <span class=" my-1">No of weeks</span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 my-1">
+          <button type="button" class="btn btn-outline-primary " (click)="Counter('+')">+</button>
+          <span class="mx-3">{{searchOnsiteTutor.numberofweek}}</span>
+
+          <button type="button" class="btn btn-outline-primary mx-1" (click)="Counter('-')">-</button>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <span class="">Meet Option</span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <button type="button" class="btn btn-outline-primary mx-1"
+          (click)="searchtype(false)">Online</button>
+           <button type="button" class="btn btn-outline-primary" (click)="searchtype(true)">OnSite
+            Tutors</button>
+        </div>
+       
+        <div class="col-lg-6 col-md-6 col-sm-6 my-1" *ngIf="isOnsite == true">
+          <span class="">Tutor Distance (Miles)</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 my-1" *ngIf="isOnsite == true">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" (change)="TutorDistance('1')" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" (change)="TutorDistance('5')" value="5">
+            <label class="form-check-label" for="inlineRadio2">5</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" (change)="TutorDistance('10')" value="10">
+            <label class="form-check-label" for="inlineRadio3">10</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" (change)="TutorDistance('15')" value="15">
+            <label class="form-check-label" for="inlineRadio3">15</label>
+          </div>
+
+        </div>
+
+         <div class="col-lg-12 col-md-12 col-sm-12 p-1">
+          <button type="button" class="btn btn-outline-primary" (click)="search()">Search</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

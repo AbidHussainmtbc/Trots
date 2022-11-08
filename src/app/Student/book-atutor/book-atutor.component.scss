@@ -1,0 +1,33 @@
+.events {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .events .ant-badge-status {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+
+  .timeslots{
+    font-size: 90%;
+    min-width: 100%;
+  }
+  .btn-outline-primary {
+    color: #70757a;
+    border-color: #70757a;
+}
+.btn-outline-primary:hover {
+  color: #007bff;
+  border-color: #007bff;
+  background-color: white;
+}
+.btn-primary {
+  color: #007bff;
+  background-color: rgb(196 199 204 / 48%);
+  border-color: rgb(191 199 214 / 48%);
+}

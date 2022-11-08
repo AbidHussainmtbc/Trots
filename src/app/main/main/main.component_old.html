@@ -1,0 +1,337 @@
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+<!-- <div class="container-fluid main-container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="main-header-container d-flex justify-content-between align-items-center">
+        <div class="logo-container">
+          <img src="/assets/images/app-logo.png" alt="app-logo.png">
+        </div>
+        <div class="bars-container">
+          <i class="pi pi-bars" (click)="blockBodyScroll()"></i>
+        </div>
+        <div class="navbar-container d-flex align-items-center" [class.hide-sidebar]="!showSideBar" [class.show-sidebar]="showSideBar">
+          <ul>
+            <li class="nav_home" (click)="navItemSelected('.nav_home')">
+              <a href="#home">Home</a>
+            </li>
+            <li class="nav_contact" (click)="navItemSelected('.nav_contact')">
+              <a href="#contact">Contact</a>
+            </li>
+            <li class="nav_privacy_policy" (click)="navItemSelected('.nav_privacy_policy')">
+              <a href="#privacy_policy">Privacy Policy</a>
+            </li>
+            <li class="nav_terms_and_conditions" (click)="navItemSelected('.nav_terms_and_conditions')">
+              <a href="#terms_and_conditions">Terms And Conditions</a>
+            </li>
+            <li routerLink="../auth/login" routerLinkActive="active">
+              <a>Login</a>
+            </li>
+            <li routerLink="../auth/register" routerLinkActive="active">
+              <a>Sign up</a>
+            </li>
+            <li  routerLinkActive="active" (click)="swalpop()">
+              <a>Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <section id="home" class="home">
+        <app-home></app-home>
+      </section>
+      <section id="contact" class="contact">
+        <app-contact></app-contact>
+      </section>
+      <section id="privacy_policy" class="privacy_policy">
+        <app-main-privacy-policy></app-main-privacy-policy>
+      </section>
+      <section id="terms_and_conditions" class="terms_and_conditions">
+      <app-main-terms-and-conditions></app-main-terms-and-conditions>
+      </section>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="main-footer-container">
+        <div>
+          <h2>Contact Us</h2>
+          <div>
+            <svg-icon name="organization"></svg-icon>
+            <span>13 wardle street Manchester</span>
+          </div>
+          <div>
+            <svg-icon name="phone"></svg-icon>
+            <span>+447470211807</span>
+          </div>
+          <div>
+            <svg-icon name="mail"></svg-icon>
+            <span>info@trotseducation.co.uk</span>
+          </div>
+
+        </div>
+        <div>
+          <h2>Follow Us</h2>
+          <div class="social-icons-container">
+            <div class="social-icon">
+              <svg-icon name="facebook"></svg-icon>
+            </div>
+            <div class="social-icon">
+              <svg-icon name="google"></svg-icon>
+            </div>
+            <div class="social-icon">
+              <svg-icon></svg-icon>
+            </div>
+            <div class="social-icon">
+              <svg-icon></svg-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="copy-right-container">
+        <h6>Copyright © All Rights Reserved</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+ -->
+
+
+<div class="container-fluid main-container ps-md-0" >
+  <div class="row" style="background-color: white !important; ">
+    <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: white !important">
+      <div class="main-header-container d-flex justify-content-between align-items-center">
+        <div class="logo-container">
+          <img src="/assets/images/app-logo.png" alt="app-logo.png">
+        </div>
+        <div class="bars-container">
+          <i class="pi pi-bars" (click)="blockBodyScroll()"></i>
+        </div>
+        <div class="navbar-container d-flex align-items-center" [class.hide-sidebar]="!showSideBar"
+          [class.show-sidebar]="showSideBar">
+          <ul>
+            <li class="nav_home" (click)="navItemSelected('.nav_home','1')">
+              <a href="#home">Home</a>
+            </li>
+            <li class="nav_terms_and_conditions navborder" (click)="navItemSelected('.nav_terms_and_conditions','2')">
+              <a href="#terms_and_conditions">Terms & Conditions</a>
+            </li>
+            <li class="nav_contact" (click)="navItemSelected('.nav_contact','3')">
+              <a href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-0" *ngIf="selectedTab =='1'">
+    <div class="col-md-4 col-lg-6 col-sm-12 bg-image p-5">
+      <div class="row mar-t-5" style="margin-left: 0px;">
+        <h2><span class="Color-Purple">TROTS</span> <span class="Color-Purple-h2"> - Future of</span><br>
+          <span class="fontElearning-e"> E</span><span class="fontElearning" > - Learning</span>
+        </h2>
+      </div>
+
+      <div class="row" class="slider-style">
+
+
+        <ngb-carousel>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img src="/assets/images/backg.PNG" class="imageHeight" alt="Random first slide">
+            </div>
+            <div class="carousel-caption ">
+              <p class="mt-2 para" >TROTS primarily focuses on bringing the Students and Tutors for an interactive session using its SaaS (Software as a Service) platform</p>
+            <p class="secondText">Learning with Technology</p>
+            </div>
+          </ng-template> 
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img src="/assets/images/backg.PNG" class="imageHeight" alt="Random second slide">
+              </div>
+              <div class="carousel-caption-secondtab ">  
+                <p class="para">
+                    Increasing productivity by ease of learning and improved experience of
+                    interconnectivity between Students and Tutors, TROTS offers Remote / Online and Onsite learning feature for
+                    its end-users</p>
+                    <p class="secondText">The education you want, The attention you deserve
+                    </p>
+                </div>
+            </ng-template>
+           <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img src="/assets/images/backg.PNG" class="imageHeight" alt="Random third slide">
+            </div>
+            <div class="carousel-caption-secondtab">
+              <p class="para" >A Student can opt a particular Tutor based on search criteria as per
+                desired needs, requirements and availability time-slot for E-Learning. TROTS hold a database of registered and
+                verified Tutors, who are competitive and willing to offer services</p>
+            
+            <p  class="secondText" >Your bright future is our mission</p>
+          </div>
+          </ng-template> 
+        </ngb-carousel>
+
+        </div>
+      <div class="d-flex">
+      <button
+          class="ui-button-primary btn-signup ui-button-signup ui-widget ui-state-default ui-corner-all ui-button-text-only mr-2"
+          type="submit">SIGNUP AS A STUDENT</button>
+        <button
+          class="ui-button-primary btn-signup ui-button-signup ui-widget ui-state-default ui-corner-all ui-button-text-only ml-2"
+          type="submit" routerLink='../auth/register' >SIGNUP AS A TUTOR</button>
+      </div>
+  
+    </div>
+    <div class="col-md-8 col-lg-6 col-sm-12 mar-112 mar-b-110">
+      <div class="login d-flex m-2 p-2">
+        <div class="container login_card mx-auto d-block">
+          <div class="mb-5 ml-5 mr-5 mt-5 row login_cardControl">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <div class="row text-center p-2">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 btn_prop-Left" [ngStyle]="isTeacher && {'border-bottom': 'white solid'}" (click)="selectedType('Tutor')">As Tutor</div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 btn_prop-right" [ngStyle]="!isTeacher && {'border-bottom': 'white solid'}" (click)="selectedType('Student')">As Student</div>
+              </div>
+              <div class="row mt-5 mb-5">
+                 <!-- Sign In Form -->
+                <div >
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" [(ngModel)]= "objloginClass.email" placeholder="Username">
+                  </div>
+                  <div class="form-floating mb-3">
+                      
+                    <input type="password" class="form-control" id="floatingPassword"
+                    [(ngModel)]= "objloginClass.password"
+                     placeholder="Password">
+                  </div>
+
+                  <div class="form-check mb-3">
+                    <a class="small" href="#">Forgot password?</a>
+                  </div>
+
+                  <div class="d-grid login-d-grid">
+                    <button
+                      class="ml-4 ui-button-primary btn-signup ui-button-signup ui-widget ui-state-default ui-corner-all ui-button-text-only ml-2 w-95"
+                      style="width: 95%;" type="submit" (click)="signIn()" >Login</button>
+                    <div class="text-center">
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-0 " *ngIf="selectedTab =='2'">
+    <div class="p-5 col-md-12 TermsAndConditions" style="  margin-top: 5%;">
+      <h5>Terms And Conditions</h5>
+      <p class=" justyfyText">Please carefully read the following Terms of Use (“Terms”) before using the TROTS application (“TROTS”, “The Application”, or “We”). By accessing and using the application, the User (“You”) acknowledge that you have read, understood and agree to be bound by these Terms, which form an agreement that is as effective as if you had signed it. If at any time you do not agree to these Terms, your permission to access or use TROTS or any of its content will automatically and immediately be revoked. Your access to, use of and browsing of the site and its contents are subject to all Terms of Use contained herein, the Privacy Policy and all applicable laws and regulations.</p>
+      <h5>OWNERSHIP</h5>
+      <p class=" justyfyText">The content available through the application is sole and exclusive property of TROTS Education Pvt Ltd, UK. You agree not to reproduce, duplicate, copy, sell, resell or exploit for any commercial purpose, any portion of the Application other than as expressly authorized by TROTS Education Pvt Ltd, UK in writing. Use of the Application in any way not expressly permitted by these Terms is prohibited, and may be actionable under the international law..</p>
+    <h5>MODIFICATION TO TERMS OF USE</h5>
+    <p class=" justyfyText">TROTS reserves the right to modify these Terms and the Privacy Policy at any time. The Users are held responsible to periodically review the most current Terms. Their continued use of Application following the posting of such change constitutes their acceptance of the amended Terms of Use. After incorporation of the new content in the Terms and the Privacy Policy, the users shall declare to have read and accepted all of its new content. In case the modification of any of the content in these Terms and of Use and Privacy Policy under sentence or Judgement given by a competent court or under and award made by an arbitrator or by a court of arbitration, the other content that have not been modified, changed, or resolved remain in force and shall be valid for both parties.</p>
+    
+    <h5>WHAT WE DO</h5>
+    <p class=" justyfyText">TROTS is an application that will cater all your educational needs, it will certainly help you to find the right tutor for your needs according to your demands at the price range that works best for you. It connects the customer. The Tutors are going to client as an extension of TROTS and hence the services rendered by the TROTS to the Client. Now the question which arises is that what differentiates us from other models is that we are offering and selling Services instead of Tutor, therefore end to end delivery and Quality Assurance of service is TROTS Responsibility. Moreover, the TROTS has the most qualified and experienced staff members for every profession under its belt. Most services can be performed from your home, workplace or online. The others can be carried out in our state-of-the-art educational center in London. For value-for-money fixed rates and unbeatable customer service, choose TROTS. The information shared by the users may contain personal information of the TROTS. The collection, use and disclosure of this information is governed by the Privacy Policy.</p>
+
+  </div>
+    <div class="col-md-12">
+
+    </div>
+  </div>
+
+  <div class="row" *ngIf="selectedTab =='3'">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="main-footer-container mt-3">
+        <div>
+          <h2>Contact Us</h2>
+          
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+            <svg-icon name="phone"></svg-icon>
+            <span>+44 7470211807</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Phone Number">
+               </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+            <svg-icon name="mail"></svg-icon>
+            <span>info@trotseducation.co.uk</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <input type="email" class="form-control" id="floatingInput" placeholder="Email Address">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <img class="" style="height: 30px;" src="/assets/images/location.PNG" alt="app-logo.png">
+              <span class="ml-3"> 13 wardle street Manchester</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+            <input type="email" class="form-control contactUs_Address" id="floatingInput" 
+             placeholder="Message">
+               </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="col text-center">
+                <button
+                class="ui-button-primary btn-signup ui-button-Submit ui-widget ui-state-default ui-corner-all ui-button-text-only ml-2 w-95"
+                style="width: 30%; " type="submit">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <img class="" src="/assets/images/map.PNG" alt="app-logo.png">
+    </div>
+  </div>
+</div>
+<div class="footer">
+<div class="row copy-right-container">
+  <span class="powered-by">Powered by</span>
+</div>
+<div class="row copy-right-container">
+  <img class="TechBloom" src="/assets/images/TechBloom.png" alt="app-logo.png">
+</div>
+
+<div class="row copy-right-container" style="border-top: 1px solid #e9b7f8;color:rgba(65, 68, 74, 0.5); font-size:0.7rem;">
+  <div class="col-lg-2 col-md-2 col-sm-2 marg">
+    <span class="ml-3">English | Urdu | Arabic</span>
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-9">
+    <div class="All-Right">
+      <h6>© 2021 TROTS Education Pvt Ltd, UK. All rights reserved.</h6>
+    </div>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-1">
+    <i class="fab fa-linkedin fa-2x mr-3"></i>
+    <i class="fab fa-facebook fa-2x"></i>
+  </div>
+</div>
+</div>

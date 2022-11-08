@@ -20,36 +20,42 @@
         <h1 class="login-msg">Sign in to your Account</h1>
       </div>
 
-      <div class="d-flex justify-content-around">
+      <!-- <div class="d-flex justify-content-around">
         <p-tabView (onChange)="onTabSelection($event)">
           <p-tabPanel header="As a Teacher"></p-tabPanel>
           <p-tabPanel header="As a Student"></p-tabPanel>
         </p-tabView>
-      </div>
+      </div> -->
 
       <div class="d-flex col-md-12 col-sm-12 login-section">
         <app-form-control class="mt-2">
           <svg-icon name="user"></svg-icon>
-          <input class="input-style" type="text" formControlName="loginEmail" id="loginEmail" pInputText placeholder="Username"
+          <input class="input-style" type="text" formControlName="username" id="username" pInputText placeholder="Username"
                  autocomplete="off">
         </app-form-control>
       </div>
 
       <div class="d-flex col-md-12 col-sm-12 login-section mt-2">
-        <app-form-control class="mt-2">
+        
+        <app-form-control class="mt-2 input-append">
           <svg-icon name="lock"></svg-icon>
-          <input class="input-style" type="password" pInputText formControlName="loginPassword" id="loginPassword" placeholder="Password"
-                 autocomplete="off">
+          
+                 <input class="input-style" [type]="password" pInputText formControlName="password" id="password" placeholder="Password"
+                 autocomplete="off">               
         </app-form-control>
+        <!-- <button  (click)="onClick()"> -->
+          <i class="fa fa-eye mt-4" aria-hidden="true"  (click)="onClick()"*ngIf="!show"></i>
+          <i class="fa fa-eye-slash mt-4" aria-hidden="true" (click)="onClick()" *ngIf="show"></i>
+        <!-- </button> -->
       </div>
 
-      <div class="d-flex col-lg-12 col-md-12 col-sm-12 mt-4 login-section">
+      <!-- <div class="d-flex col-lg-12 col-md-12 col-sm-12 mt-4 login-section">
         <div class="col-lg-10">
           <ngx-recaptcha2 (expire)="handleCaptchaExpire()" (success)="handleCaptchaSuccess($event)" formControlName="recaptcha"
                           [siteKey]="siteKey">
           </ngx-recaptcha2>
         </div>
-      </div>
+      </div> -->
 
       <div class="d-flex col-md-12 col-sm-12 login-section mt-4">
         <div class="col-lg-10">
@@ -61,13 +67,13 @@
         <button pButton type="submit" label="Login" class="ui-button-primary w-80" [disabled]="isLoading"></button>
       </div>
 
-      <div class="separator">
+      <!-- <div class="separator">
         <div class="line"></div>
         <div id="or">OR</div>
         <div class="line"></div>
-      </div>
+      </div> -->
 
-      <div class="d-flex justify-content-center mt-4">
+      <!-- <div class="d-flex justify-content-center mt-4">
         <a class="mr-2" (click)="loginWithGoogle()">
           <img src="/assets/svgs/google.svg" alt="">
         </a>
@@ -75,13 +81,13 @@
         <a class="ml-2" (click)="loginWithFacebook()">
           <img src="/assets/svgs/facebook.svg" alt="">
         </a>
-      </div>
+      </div> -->
     </form>
 
-    <div class="auth-footer">
+    <!-- <div class="auth-footer">
       <span>Don’t have an account</span>
       <span class="text-sign" (click)="gotoRegistration()">Sign up</span>
-    </div>
+    </div> -->
   </div>
 
 </div>

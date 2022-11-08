@@ -1,0 +1,66 @@
+.agreement-bg {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+  
+    .agreement-section {
+      padding: 45px 10px;
+  
+      .description {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.055em;
+        color: #333333;
+      }
+    }
+  }
+  
+  .agreement-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  :host ::ng-deep {
+    .pi-check:before {
+      content: url('../../../assets/images/tick.png');
+      position: relative;
+      top: -4px;
+      right: -6px;
+    }
+  
+    p-checkbox .ui-chkbox .ui-chkbox-box {
+      border: 2px solid #A182F1;
+      height: 32px;
+      width: 30px;
+    }
+  
+    p-checkbox .ui-chkbox .ui-chkbox-box.ui-state-active {
+      border: 2px solid #A182F1;
+      background: unset;
+    }
+  
+    p-checkbox label {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: 0.03em;
+      color: #666666;
+      margin-left: 20px;
+    }
+  
+    .ui-inputtext {
+      padding: 15px 20px;
+      font-style: normal;
+      font-weight: normal;
+      border-radius: 8px;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: 0.03em;
+      color: rgba(196, 196, 196, 0.75);
+    }
+  }
+  
