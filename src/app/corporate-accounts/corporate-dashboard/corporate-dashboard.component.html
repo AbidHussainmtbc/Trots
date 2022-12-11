@@ -1,0 +1,222 @@
+<div class="container">
+    <div class="row p-3 bg-light rounded">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card card-margin student-card">
+                <div class="card-body pt-0 grid-container p-1 mb-4" (click)="open_std()">
+                    <div class="widget-49-date-primary">
+                        <img src="/assets/images/Corp_student_card.PNG">
+                    </div>
+                    <div class="widget-49-meeting-info item1" >
+                        <p class="widget-49-meeting-time text-white">Add</p>
+                        <h3>
+                            <p class="widget-49-pro-title text-white"> Student </p>
+                        </h3>
+                    </div>
+                    <div class="plus rounded-circle">
+                        <img class="rounded mx-auto d-block" src="/assets/images/corp-std-plus.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card card-margin teacher-card" (click)="open_tutor()">
+                <div class="card-body pt-0 grid-container p-1 mb-4">
+                    <div class="widget-49-date-primary">
+                        <img src="/assets/images/corp_teacher_card.PNG">
+                    </div>
+                    <div class="widget-49-meeting-info item1">
+                        <p class="widget-49-meeting-time text-white">Add</p>
+                        <h3>
+                            <p class="widget-49-pro-title text-white"> Teacher </p>
+                        </h3>
+                    </div>
+                    <div class="plus rounded-circle">
+                        <img class="rounded mx-auto d-block" src="/assets/images/corp-std-plus.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4  col-md-4 col-sm-6">
+            <div class="card card-margin">
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-primary  m-2">
+                                <circle-progress 
+                                [percent]="objdashboard_corp.completedCourses*100 /totalcourses " 
+                                [radius]="30" 
+                                [outerStrokeWidth]="6"
+                                [innerStrokeWidth]="5" 
+                                [outerStrokeColor]="'#4F98E4'" 
+                                [innerStrokeColor]="'#c7eaec'"
+                                [animation]="true" 
+                                [animationDuration]="2000">
+                                </circle-progress>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Completed Courses</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card card-margin">
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-warning m-2">
+                                <circle-progress 
+                                [percent]="objdashboard_corp.upcomingCourses*100 /totalcourses " 
+                                [radius]="30" 
+                                [outerStrokeWidth]="6"
+                                [innerStrokeWidth]="5" 
+                                [outerStrokeColor]="'#A182F1'" 
+                                [innerStrokeColor]="'#cbc7ec'"
+                                [animation]="true" 
+                                [animationDuration]="2000">
+                                </circle-progress>
+                            </div>
+                            <span class="idget-49-meeting-info">Courses in Progress</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="card card-margin">
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-success  m-2">
+                                <!-- <img src="/assets/images/completed-course.PNG"> -->
+                                <circle-progress
+                                 [percent]='objdashboard_corp.pendingCourses*100 /totalcourses ' 
+                                 [radius]="30" 
+                                 [outerStrokeWidth]="6"
+                                 [innerStrokeWidth]="5" 
+                                 [outerStrokeColor]="'#F0AE00'" 
+                                 [innerStrokeColor]="'#FFD789'"
+                                 [animation]="true" [animationDuration]="900">
+                                </circle-progress>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Courses Remaining</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-3 bg-light rounded">
+        <div class="col-lg-6 col-md-6 col-sm-12 ">
+            <div class="row m-2">Remaining Quota for Student</div>
+            <div class="col-lg-12 col-md-12 col-sm-12 third  quota-for-student">
+                <div class="row m-2">
+                    <div class="col-lg-2 widget-49-date-primary">
+                        <img src="/assets/images/std.png">
+                    </div>
+                    <div class="col-lg-7">
+                        <h4><span>Student</span></h4>
+                    </div>
+                    <div class="col-lg-3 widget-49-date-primary">
+                        <img style='height: 60px;' src="/assets/images/students.png">
+                    </div>
+                </div>
+
+                <div class="row m-2">
+                    <div class="grid-container-total-remaining">
+                        <div class="grid-item-total-remaining">
+                            <img src="/assets/images/yellowtick.png">
+                        </div>
+                        <div class="grid-item-total-remaining ">
+                            <span class="d-flex float-left">Total Quota </span>
+                            <br>
+                            <h4 class="d-flex float-left">
+                                <p> {{objdashboard_corp.totalStudentQuota}}</p>
+                                    <!-- {{objdashboard_corp.totalStudentQuota}} -->
+                            </h4>
+                        </div>
+                        <div class="grid-item-total-remaining">
+                            <img src="/assets/images/purple.png">
+                        </div>
+                        <div class="grid-item-total-remaining">
+                            <span class="d-flex float-left">Remaining Quota  </span>
+                            <br>
+                            <h4 class="d-flex float-left">
+                                <p> {{objdashboard_corp.remainingStudentQuota}}</p>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rown m-2">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" [style.width.%]='( objdashboard_corp.totalStudentQuota - objdashboard_corp.remainingStudentQuota) * 100 /objdashboard_corp.totalStudentQuota' style=" background: #A182F1;"
+                            aria-valuenow='(objdashboard_corp.totalStudentQuota - objdashboard_corp.remainingStudentQuota) * 100 /objdashboard_corp.totalStudentQuota' aria-valuemin="0" aria-valuemax="100">{{(objdashboard_corp.totalStudentQuota - objdashboard_corp.remainingStudentQuota) * 100 /objdashboard_corp.totalStudentQuota}}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 ">
+            <div class="row m-2">Remaining Quota for Teachers</div>
+            <div class="col-lg-12 col-md-12 col-sm-12 third quota-for-teacher">
+                <div class="row m-2">
+                    <div class="col-lg-2 widget-49-date-primary">
+                        <img src="/assets/images/std.png">
+                    </div>
+                    <div class="col-lg-7">
+                        <h4><span>Teacher</span></h4>
+                    </div>
+                    <div class="col-lg-3 widget-49-date-primary">
+                        <img style='height: 60px;' src="/assets/images/students.png">
+                    </div>
+                </div>
+
+                <div class="row m-2 ">
+                    <div class="grid-container-total-remaining ">
+                        <div class="grid-item-total-remaining">
+                            <img src="/assets/images/yellowtick.png">
+                        </div>
+                        <div class="grid-item-total-remaining ">
+                            <span class="d-flex float-left">Total Quota </span>
+                            <br>
+                            <h4 class="d-flex float-left">
+                                <p> {{objdashboard_corp.totalTeacherQuota}}</p>
+                            </h4>
+                        </div>
+                        <div class="grid-item-total-remaining">
+                            <img src="/assets/images/teacher-quota.png">
+                        </div>
+                        <div class="grid-item-total-remaining">
+                            <span class="d-flex float-left">Total Quota </span>
+                            <br>
+                            <h4 class="d-flex float-left">
+                                <p> {{objdashboard_corp.remainingTeacherQuota}}</p>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rown m-2">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"
+                        [style.width.%]='( objdashboard_corp.totalTeacherQuota - objdashboard_corp.remainingTeacherQuota) * 100 /objdashboard_corp.totalTeacherQuota'
+                         style=" background:#82F1BC"
+                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> {{( objdashboard_corp.totalTeacherQuota - objdashboard_corp.remainingTeacherQuota) * 100 /objdashboard_corp.totalTeacherQuota}}%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="container">
+    <!-- <div class="row">
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="border  border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-primary">
+                                <i class="far fa-video "></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Completed Courses</span>
+                                <span class="widget-49-pro-title">100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="border_Gray  border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-warning">
+                                <i class="fas fa-award ml-4 mr-2"></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Courses in Progress</span>
+                                <span class="widget-49-pro-title">100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card card-margin">
+                <div class="border_subject border-5 border-primary">
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper">
+                            <div class="widget-49-date-success">
+                                <i class="fal fa-book"></i>
+                            </div>
+                            <div class="widget-49-meeting-info">
+                                <span class="widget-49-meeting-time">Courses Remaining</span>
+                                <span class="widget-49-pro-title">02</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-lg-4">
+            <span>
+                <h5>Today Class</h5>
+            </span>
+        </div>
+        <div class="col-lg-8">
+            <span>
+                <h5>Upcomming Class</h5>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-lg-4">
+            <div class="row p-3" style="border-bottom: 1px gray solid"  *ngFor="let item of lstTutor_currentdate">
+                <div class="col-lg-7 p-0 mt-5">
+                    <span >{{item.topic}}</span>
+                </div>
+                <div class="col-lg-5 p-0">
+                    <p><span class="d-flex justify-content-center subjectbg radious_card">{{item.subjectname}}</span></p>
+                   <p> <span class="d-flex justify-content-center subjectbg radious_card" (click)="route('std/Home',item.id)">Join</span></p>
+                </div>
+                <div class="col-lg-12">
+                    <span class="cls">{{item.topic}}</span>
+                </div>
+                <div class="col-lg-12">
+                    <i class="far fa-calendar-alt p-2"></i>
+                    <span class="DateTime">{{item.jobdate}}</span>
+                </div>
+                <div class="col-lg-12">
+                    <i class="fal fa-clock p-2"></i>
+                    <span class="DateTime">{{item.timefrom}} - {{item.timeto}}</span>
+                </div>
+                <hr>
+            </div> 
+        </div> 
+        
+        <div class="col-lg-8">
+            <table class="table table_bg">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Full Name </th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Subject</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let item of lstTutor">
+                    <!-- <tbody > -->
+                    <tr>
+             
+                        <th scope="row"><img class="img" src="assets/images/user-image.png" alt="user-image.png"></th>
+                        <td>{{item.topic}}</td>
+                        <td>{{item.id}}</td>
+                        <td><span class="subjectbg">{{item.subjectname}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

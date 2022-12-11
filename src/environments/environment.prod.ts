@@ -1,8 +1,8 @@
 export const environment = {
   production: true,
   oldapiConn: 'http://74.208.176.115/trotsapi/',
-  apiConn: 'https://api.trots.education/',
-  Dev_apiConn: 'https://api-dev.trots.education/',
+  Live_apiConn: 'https://api.trots.education/',
+  apiConn: 'https://api-dev.trots.education/',
   apiAccessKey: 'VHIwdDUuQFBJLnZAMS5WMYB3DuN3INEzcMWb0T8POHY=',
   twilio_SID: 'AC663b2f8e375f5650288d18730c52f314',
   twilio_AuthToken : '510e948c7d9b051424d1fff449b6ec60',

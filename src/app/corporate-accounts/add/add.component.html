@@ -1,0 +1,95 @@
+<div class="container  p-5">
+    <div class="row border p-5" *ngIf="isStudent">
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <input type="text" pInputText id="" placeholder="Student First Name" [(ngModel)]="objCorpStudent.firstname">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <input type="text" pInputText id="" placeholder="Student Last Name" [(ngModel)]="objCorpStudent.lastname">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    (click)="isMale('m')" value='m'>
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    (click)="isMale('f')" value="f">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12  m-2">
+            <input type="text" pInputText id="" placeholder="Student Email Id" [(ngModel)]="objCorpStudent.email">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <input type="text" pInputText id="" placeholder="Password" [(ngModel)]="objCorpStudent.password">
+        </div>
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12  m-2">
+            <input type="text" pInputText id="" placeholder="Student Phone Number" [(ngModel)]="objCorpStudent.mobile">
+        </div>
+       
+
+        <!-- <div class="col-lg-12 col-md-12 col-sm-12  m-2">
+            <input type="text" pInputText id="" placeholder="Student Class" [(ngModel)]="objCorpStudent.classid">
+        </div> -->
+
+
+    </div>
+
+
+    <div class="row border p-5" *ngIf="!isStudent">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <input type="text" pInputText id="" placeholder="Tutor First Name" [(ngModel)]="objCorpTutor.firstname">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <input type="text" pInputText id="" placeholder="Tutor Last Name" [(ngModel)]="objCorpTutor.lastname">
+        </div>
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12  m-2">
+            <input type="text" pInputText id="" placeholder="Tutor Email Id" [(ngModel)]="objCorpTutor.email">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <input type="text" pInputText id="" placeholder="Password" [(ngModel)]="objCorpTutor.password">
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    (click)="isMale_tutor('m')" value='m'>
+                <label class="form-check-label" for="inlineRadio1">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    (click)="isMale_tutor('f')" value="f">
+                <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div>
+
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12  m-2">
+            <input type="text" pInputText id="" placeholder="Tutor Phone Number" [(ngModel)]="objCorpTutor.mobile">
+        </div>
+
+        <div class="row   m-2">
+            <div class="col-lg-2 col-md-2 col-sm-2" *ngFor="let s of lstsubjectResp ; let i= index" style="font-size: 12px;">
+                <input class="form-check-input " type="checkbox" [(ngModel)]= "s.selected" (click)="stdAdded(s.id)" id="flexCheckDefault"> {{s.name}}
+            </div>            
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center ">
+        <div class="col-lg-12 col-md-12 col-sm-12 m-2">
+            <button class="ui-button-primary ui-button-top" (click)="add()"> Save </button>
+        </div>
+    </div>
+</div>

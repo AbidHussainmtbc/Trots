@@ -1,0 +1,146 @@
+<div class="container  bg-light m-1 ">
+    <div class="row  p-2 mt-3 m-2 rounded d-flex flex-row-reverse">
+        <div class="col-lg-3 col-md-3 col-sm-4 h-50 d-inline-block rounded ">
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [(ngModel)]="isStudent">
+                <label class="form-check-label" for="inlineCheckbox1" >Student</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" [(ngModel)]="!isStudent" >
+                <label class="form-check-label" for="inlineCheckbox2">Teacher</label>
+              </div>
+              
+            <!-- <div class="img d-inline-block">
+                <img src="/assets/images/add-subject-img.PNG">
+                <span class="text-white">Add Subject</span>
+            </div> -->
+        </div>
+    </div>
+    
+
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <b>Reports</b> 
+    </div>
+    <div class="row  p-2 mt-3  subject-bg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Class ID</th>
+                    <th scope="col">Teachers/Student Name</th>
+                    <th scope="col">Reported By</th>
+                    <th scope="col">Time</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of lstreport ; let i= index">
+                    <th scope="row">{{s.sessionId}}</th>
+                    <td>
+                        <span>{{s.reportedUser}}</span>  
+                        <button type="button" class="btn btn-outline-primary btn-1 btn-teacher-subject">{{s.subjectName}}</button>
+                    </td>
+                    <td>
+                        <span>{{s.reportedBy}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                        <span>{{s.reportedTime}}</span>
+                    </td>
+                    
+
+                    <td>
+                       <button class="small-medium btm"   (click)="openModal(s.sessionId)" >Reported By</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <b>Classes Logs</b> 
+    </div>
+    <div class="row  p-2 mt-3  subject-bg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Class Name</th>
+                    <th scope="col">Teachers Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Students</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of Temp_lstBookings ; let i= index">
+                    <th scope="row">{{s.subjectName}}</th>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>                      
+                              <span> {{s.firstName}} &nbsp; {{s.lastName}}</span> 
+                        </span>  
+                        <button type="button" class="btn btn-outline-primary btn-1 btn-teacher-subject">{{s.subjectName}}</button>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/calender.png">
+                        <span>{{s.sessionDate}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                        <span>{{s.timeFrom}} : {{s.timeTo}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>{{s.totalStudents}}</span>
+                    </td>
+
+                    <!-- <td>
+                        <img class="tbl-img-student" src="/assets/images/ActivityReport.png">
+                        <p class="small-text">Activity Report</p>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/ViewClass.png">
+                        <p class="small-text">View Class</p>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" (click)="Previous()">Previous</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next(1)">1</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next(2)">2</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next(3)">3</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next('')">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+          <div class="modal-content">
+                <div class="modal-header">
+                      <h4 class="modal-title">Report Reason:</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+           <div class="modal-body">
+                      <p>Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s
+                        </p>
+                    </div>
+                <div class="modal-footer">
+                      <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                    </div>
+       </div>
+        </div>
+</div>

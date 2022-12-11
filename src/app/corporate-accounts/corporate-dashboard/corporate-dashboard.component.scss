@@ -1,0 +1,149 @@
+.border {
+    border: 5px solid #4F98E4 !important;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.border_Gray {
+    border: 5px solid #A182F1 !important;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.border_subject {
+    border: 5px solid #3B5999 !important;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.table_bg {
+    background-color: #ffffff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.img {
+    max-width: 30%;
+    height: auto;
+}
+
+.subjectbg {
+    padding: 5%;
+    color: #F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+
+.cls {
+    color: #B1BAC5;
+    font-size: 13px;
+}
+
+.DateTime {
+    font-size: 12px;
+}
+
+.subjectbg_card {
+    padding: 5%;
+    color: #F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+
+.radious_card {
+    border-radius: 8px 8px;
+    font-size: 12px;
+}
+
+
+.icon-cog {
+    color: blue;
+}
+
+
+.student-card {
+    background: #A182F1
+}
+
+.student-card .plus {
+    background: #C1A9FF;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.student-card .plus>img {
+    height: 39px;
+    margin-top: 14px;
+}
+
+.teacher-card {
+    text-align: center;
+    background: #F0AE00;
+
+}
+
+.teacher-card .plus {
+    background: #FFD789;
+    ;
+    text-align: center;
+    margin-top: 17px;
+}
+
+.teacher-card .plus>img {
+    height: 25px;
+    margin-top: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 10px;
+    // background: #A182F1;
+    padding: 10px;
+}
+
+
+.item1 {
+    grid-column: 2 / 5;
+}
+
+.third {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.grid-container-total-CompletedCorurces {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1, 1fr 15fr 1fr)
+}
+
+.grid-container-total-remaining {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1, 1fr 15fr 1fr 15fr)
+}
+
+.grid-item-total-remaining {
+    //   background-color: rgba(255, 255, 255, 0.8);
+    font-size: 9px;
+    text-align: center;
+}
+
+.grid-item-total-remaining img {
+    height: 25px;
+}
+
+.quota-for-student {
+    background: rgb(254, 247, 218);
+    background: linear-gradient(0deg, rgba(254, 247, 218, 1) 0%, rgba(239, 228, 186, 1) 100%);
+}
+
+.quota-for-teacher {
+    background: rgb(220, 244, 195);
+    background: linear-gradient(0deg, rgba(220, 244, 195, 1) 0%, rgba(250, 247, 236, 1) 100%);
+}
+
+
+.myCustomModalClass .modal-dialog {
+    max-width: 565px;
+  }

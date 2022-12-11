@@ -52,11 +52,12 @@ export class RoomsComponent implements OnInit, OnDestroy {
         debugger;
         if(roomName == null || roomName == "" || roomName == undefined){
             var n =     sessionStorage.getItem("romname")
+
             this.objRoomRequest.roomname = n;
             this.RoomGenerated(n);
         }
         else{
-  // this.objRoomRequest.roomname = roomName;
+        // this.objRoomRequest.roomname = roomName;
         // this.apiService.GetDetails("Video/token").subscribe(rtnData => {
         //     debugger;
         //     console.log(rtnData)

@@ -1,0 +1,393 @@
+<div class="container  bg-light m-1 " *ngIf="!showClassSchedule">
+    <div class="row  p-2 mt-3 m-2 rounded d-flex flex-row-reverse">
+        <div class="col-lg-3 col-md-3 col-sm-4 h-50 d-inline-block rounded add-subj">
+            <div class="img d-inline-block">
+                <img src="/assets/images/Scheduleclass.png">
+                <span class="text-white" (click)="open()">Class Schedule</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <b>Classes Status</b> (Active)
+    </div>
+    <div class="row  p-2 mt-3  subject-bg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Teachers Name</th>
+
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Students</th>
+                    <!-- <th scope="col"></th> -->
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>20</span>
+                        <button type="button" class="btn btn-outline-primary btn-1 btn-teacher-subject">English</button>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/calender.png">
+                        <span>Oct-12-2022</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                        <span>09:00 - 10:00 am</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>55</span>
+                    </td>
+
+                    <td >
+                        <img class="tbl-img-student" src="/assets/images/ActivityReport.png"
+                        (click) ="view_activityreport()"
+                        >
+                        <p class="small-text"
+                        (click) ="view_activityreport()"
+                        >Activity Report</p>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" (click)="viewclass()" src="/assets/images/ViewClass.png">
+                        <p class="small-text" (click)="viewclass()">View Class</p>
+                    </td>
+                </tr> -->
+
+                <tr *ngFor="let s of lstActiveBookings ; let i= index">
+
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        {{s.firstName}} &nbsp; {{s.lastName}}
+                        <button type="button"
+                            class="btn btn-outline-primary btn-1 btn-teacher-subject">{{s.subjectName}}</button>
+
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/calender.png">
+                        <span>{{s.sessionDate}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                        <span>{{s.timeFrom}} : {{s.timeTo}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>{{s.totalStudents}}</span>
+                    </td>
+
+                    <!-- <td>
+                        <img class="tbl-img-student" src="/assets/images/ActivityReport.png"
+                            (click)="view_activityreport()">
+                        <p class="small-text" (click)="view_activityreport()">Activity Report</p>
+                    </td> -->
+                    <td>
+                        <img class="tbl-img-student" (click)="openModal(s.sessionId)"
+                            src="/assets/images/ViewClass.png">
+                        <p class="small-text">View Class</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" (click)="Active_Previous()">Previous</a></li>
+                <li class="page-item"><a class="page-link" (click)="Active_Next(1)">1</a></li>
+                <li class="page-item"><a class="page-link" (click)="Active_Next(2)">2</a></li>
+                <li class="page-item"><a class="page-link" (click)="Active_Next(3)">3</a></li>
+                <li class="page-item"><a class="page-link" (click)="Active_Next('')">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <b>Classes Status</b>
+    </div>
+    <div class="row  p-2 mt-3  subject-bg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Teachers Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Students</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of Temp_lstUpcommingBookings ; let i= index">
+                    <th scope="row">{{s.sessionId}}</th>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        {{s.firstName}} &nbsp; {{s.lastName}}
+                        <button type="button"
+                            class="btn btn-outline-primary btn-1 btn-teacher-subject">{{s.subjectName}}</button>
+
+
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/calender.png">
+                        <span>{{s.sessionDate}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                        <span>{{s.timeFrom}} : {{s.timeTo}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>{{s.totalStudents}}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" (click)="Previous()">Previous</a></li>
+                <li class="page-item"><a class="page-link" (click)="Next(1)">1</a></li>
+                <li class="page-item"><a class="page-link" (click)="Next(2)">2</a></li>
+                <li class="page-item"><a class="page-link" (click)="Next(3)">3</a></li>
+                <li class="page-item"><a class="page-link" (click)="Next('')">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+</div>
+
+
+<div class="container p-2" *ngIf="showClassSchedule">
+    <div class="row ">
+        <div class="col-lg-6 col-md-6 col-sm-6  justify-content-center">
+            <ejs-calendar class="w-100" style="height: 50vh;" id=calendar [value]='value' [min]='minDate'
+                [max]='maxDate'>
+            </ejs-calendar>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 ">
+            <div class="row w-100 ">
+                <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-2">
+                    <span class="">Choose Your Subject</span>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-0 mx-1 my-2">
+                    <select class="form-select justify-content-center w-100" (change)="gettutor()"
+                        [(ngModel)]="objcreatebooking.subjectId" aria-label="Default select example">
+                        <option *ngFor="let genCat of lstsubjectResp;  let i= index" [value]='genCat.id'>
+                            {{genCat.name}}</option>
+
+                    </select>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-2">
+                    <span class="">Tutor</span>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-2 ">
+                    <select class="form-select justify-content-center w-100" [(ngModel)]="objcreatebooking.tutorId"
+                        aria-label="Default select example">
+                        <option *ngFor="let p of lstCorpTutor" [value]='p.id'>{{p.firstname}} {{p.lastname}}</option>
+                    </select>
+                </div>
+                <!-- <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-2 ">
+                    <input type="text"
+                </div>
+                objcreatebooking.noOfClasses -->
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-2">
+                    <span class="">Add Students</span>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 mx-1 my-2">
+                    <div class="row  d-flex justify-content-between">
+                        <div>
+                            <img style='height: 40px;' (click)="addStd()" src="/assets/images/btn-add.png">
+                        </div>
+                        <div>
+                            <img style='height: 40px;' (click)="viewStd()" src="/assets/images/students.png">
+                            <span class="mx-2" (click)="viewStd()">{{objcreatebooking.studentIds}} Added</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  p-2">Select Your Time Slot</div>
+    <div class="row timesheet p-2">
+        <div class="col-md-2 col-lg-2 col-sm-2 time-slot"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '09:00-10:30'}" (click)="timeSeleted('09:00-10:30')">
+            <span class="timesheet_span" (click)="timeSeleted('09:00-10:30')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '09:00-10:30'}">09:00-10:30 Am</span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" [ngClass]="{'timeFrameBackgroung': selectedTime === '10:30-12:00'}"
+            (click)="timeSeleted('10:30-12:00')">
+            <span class="timesheet_span" (click)="timeSeleted('10:30-12:00')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '10:30-12:00'}">10:30-12:00 Am</span>
+        </div>
+
+
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('12:00-13:30')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '12:00-13:30'}">
+            <span class="timesheet_span" (click)="timeSeleted('12:00-13:30')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '12:00-13:30'}">12:00-01:30 pm</span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" [ngClass]="{'timeFrameBackgroung': selectedTime === '13:30-15:00'}"
+            (click)="timeSeleted('13:30-15:00')">
+            <span class="timesheet_span" (click)="timeSeleted('13:30-15:00')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '13:30-15:00'}">01:30-3:00 pm</span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('15:00-16:30')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '15:00-16:30'}">
+            <span class="timesheet_span" (click)="timeSeleted('15:00-16:30')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '15:00-16:30'}">03:00-4:30 pm</span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('16:30-18:00')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '16:30-18:00'}">
+            <span class="timesheet_span" (click)="timeSeleted('16:30-18:00')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '16:30-18:00'}">04:30-06:00 pm</span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('18:00-19:30')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '18:00-19:30'}">
+            <span class="timesheet_span" (click)="timeSeleted('18:00-19:30')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '18:00-19:30'}">06:00-07:30 pm</span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('19:30-21:00')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '19:30-21:00'}">
+            <span class="timesheet_span" (click)="timeSeleted('19:30-21:00')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '19:30-21:00'}">07:30-09:00 pm </span>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('21:00-22:30')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '21:00-22:30'}">
+            <span class="timesheet_span" (click)="timeSeleted('21:00-22:30')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '21:00-22:30'}">09:00-10:30 pm </span>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-2" (click)="timeSeleted('22:30-00:00')"
+            [ngClass]="{'timeFrameBackgroung': selectedTime === '22:30-00:00'}">
+            <span class="timesheet_span" (click)="timeSeleted('22:30-00:00')"
+                [ngClass]="{'timeFrameBackgroung': selectedTime === '22:30-00:00'}">10:30-12:00 am </span>
+        </div>
+
+    </div>
+
+    <div class="d-flex col-md-12 col-sm-12 mt-4 d-flex justify-content-end">
+        <button pButton type="submit" label="Schedule Class" class="ui-button-primary w-25"
+            (click)="createbooking()"></button>
+    </div>
+
+
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Activity Report: </h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <!-- <thead>
+                        <tr>
+                            <th scope="col">Teachers Name</th>
+
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Students</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead> -->
+                    <tbody>
+                        <!-- *ngFor="let s of lstActiveBookings ; let i= index" -->
+                        <tr >
+                            <td>
+                                <img class="tbl-img-student" src="/assets/images/teacher.png">
+                                <!-- {{s.firstName}} &nbsp; {{s.lastName}} -->
+                                Alexander
+                            </td>
+                            <td>
+                            <span class="active-time">Active: 20 min</span>
+                                <!-- <img class="tbl-img-student" src="/assets/images/calender.png">
+                                <span>{{s.sessionDate}}</span> -->
+                            </td>
+                            <td>
+                                <!-- <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                                <span>{{s.timeFrom}} : {{s.timeTo}}</span> -->
+                                <span class="away-time">Away:  1 time</span>
+                            </td>
+                            <td>
+                                <img class="tbl-img-student" src="/assets/images/viewact.png">
+                                <!-- <span>{{s.totalStudents}}</span> -->
+                            </td>
+                        </tr>
+
+                        <tr >
+                            <td>
+                                <img class="tbl-img-student" src="/assets/images/teacher.png">
+                                <!-- {{s.firstName}} &nbsp; {{s.lastName}} -->
+                                Alexander
+                            </td>
+                            <td>
+                            <span class="active-time">Active: 20 min</span>
+                                <!-- <img class="tbl-img-student" src="/assets/images/calender.png">
+                                <span>{{s.sessionDate}}</span> -->
+                            </td>
+                            <td>
+                                <!-- <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                                <span>{{s.timeFrom}} : {{s.timeTo}}</span> -->
+                                <span class="away-time">Away:  1 time</span>
+                            </td>
+                            <td>
+                                <img class="tbl-img-student" src="/assets/images/viewact.png">
+                                <!-- <span>{{s.totalStudents}}</span> -->
+                            </td>
+                        </tr>
+
+                        <tr >
+                            <td>
+                                <img class="tbl-img-student" src="/assets/images/teacher.png">
+                                <!-- {{s.firstName}} &nbsp; {{s.lastName}} -->
+                                Alexander
+                            </td>
+                            <td>
+                            <span class="active-time">Active: 20 min</span>
+                                <!-- <img class="tbl-img-student" src="/assets/images/calender.png">
+                                <span>{{s.sessionDate}}</span> -->
+                            </td>
+                            <td>
+                                <!-- <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                                <span>{{s.timeFrom}} : {{s.timeTo}}</span> -->
+                                <span class="away-time">Away:  1 time</span>
+                            </td>
+                            <td>
+                                <img class="tbl-img-student" src="/assets/images/viewact.png">
+                                <!-- <span>{{s.totalStudents}}</span> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="onCloseHandled()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
