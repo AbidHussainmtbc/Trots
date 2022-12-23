@@ -1,7 +1,7 @@
 <div class="jumbotron">
     <!-- <h5 class="display-4"><i class="fas fa-video"></i> Rooms</h5> -->
     <div class="list-group">
-         <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="list-group-item d-flex justify-content-between align-items-center">
             <div class="input-group">
                 <!-- <input type="text" class="form-control form-control-lg"
                 style="width: 25%;"
@@ -9,20 +9,24 @@
                     (keydown.enter)="onTryAddRoom()"
                     [(ngModel)]="objRoomRequest.roomname"
                     > -->
-                    
-                <div class="input-group-append"> 
-                    <button class="btn btn-lg btn-outline-secondary twitter-red"
-                            type="button" 
-                           
-                            (click)="onAddRoom('')">
-                         <i class="far fa-plus-square"></i> Join
+
+                <div class="input-group-append">
+                    <button pButton class="ui-button-primary w-100" type="button" (click)="onAddRoom('')">
+                        <i class="far fa-plus-square"></i>
+                        Join
                     </button>
+
+
+
+
                 </div>
             </div>
         </div>
         <div *ngIf="!rooms || !rooms.length" class="list-group-item d-flex justify-content-between align-items-center">
             <p class="lead">
-                Add a room to begin. Other online participants can join or create rooms.
+                <!-- <button pButton class="ui-button-primary w-80" type="button"> Report
+                </button> -->
+                <!-- Add a room to begin. Other online participants can join or create rooms. -->
             </p>
         </div>
         <!-- <a href="#" *ngFor="let room of rooms"

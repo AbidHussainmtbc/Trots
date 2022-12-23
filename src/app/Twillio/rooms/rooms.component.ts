@@ -78,7 +78,8 @@ export class RoomsComponent implements OnInit, OnDestroy {
             var token =  sessionStorage.getItem("token");
             this.objRoomRequest.authtoken =token;
             // "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMjgiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJzdHVkZW50IiwiZXhwIjoxNjQ4MjQwNTA3LCJpc3MiOiJUcm90cy5FZHVjYXRpb24iLCJhdWQiOiJUcm90c0FwaVVzZXIifQ.4SYF_ZUNghG4Q-HAuvDLRN15WT_qZSqGp6KBrrtVV2Q";
-            this.apiService.tawillio_Room(this.objRoomRequest , "Video/CreateRoom").subscribe(rtnData => {
+        //    this.apiService.tawillio_Room(this.objRoomRequest , "Video/CreateRoom").subscribe(rtnData => {
+            this.apiService.tawillio_Room(this.objRoomRequest , "Video/CreateRoomCorporate").subscribe(rtnData => {
                 debugger;
                 console.log(rtnData)
 

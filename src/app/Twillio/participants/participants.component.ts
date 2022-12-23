@@ -100,6 +100,7 @@ export class ParticipantsComponent {
           const element = track.attach();
           this.renderer.data.id = track.sid;
           this.renderer.setStyle(element, 'width', '95%');
+          this.renderer.setStyle(element, 'max-height', '250px');
           this.renderer.setStyle(element, 'margin-left', '2.5%');
           this.renderer.appendChild(this.listRef.nativeElement, element);
           this.participantsChanged.emit(true);
