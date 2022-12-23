@@ -32,12 +32,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     TermsAndConditionsComponent,
     PrivacyPolicyComponent,
     AdminAuthComponent,
-<<<<<<< HEAD
     QuizComponent,
     // JwPaginationComponent
-=======
     TutorCardComponent
->>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
   ],
   imports: [
     CommonModule,

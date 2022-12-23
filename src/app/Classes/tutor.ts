@@ -9,7 +9,7 @@ export class Tutor {
     topic: string;
 
     /**
-     *
+
      */
     constructor() {
         this.id = 0;

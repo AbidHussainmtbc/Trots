@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Router } from '@angular/router';
 import * as Chart from 'chart.js';
 import { classesdetails, completeProfile, subjects, tutorCounter } from 'src/app/Classes/management';
@@ -7,19 +6,16 @@ import { tutorList } from 'src/app/Classes/tutor';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { ToastService } from 'src/app/services/toast.service';
 import { UtilsService } from 'src/app/services/utils.service';
-=======
 import { CardData } from 'src/app/shared/models';
 import { Tutor } from '../models';
 
 
->>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
 @Component({
   selector: 'app-tutors',
   templateUrl: './tutors.component.html',
   styleUrls: ['./tutors.component.scss']
 })
 export class TutorsComponent implements OnInit {
-<<<<<<< HEAD
   canvas: any;
 ctx: any;
 showProfile: boolean =false;
@@ -290,13 +286,7 @@ export class updatetutor{
     this.userid =0 ;
     this.isapproved =false;
     this.isrejected =false;
-        
-  }
-=======
-	cards: CardData[];
-	tutors: Tutor[];
 
-	constructor() {
 		this.cards = [
 			{
 				title: 'Verified',
@@ -344,9 +334,12 @@ export class updatetutor{
 				email: 'tutor@gmail.com'
 			}
 		]
-	}
+	
+        
+  }
+	cards: CardData[];
+	tutors: Tutor[];
 
 	ngOnInit(): void {
 	}
->>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
 }

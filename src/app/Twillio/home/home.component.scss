@@ -1,8 +1,8 @@
 .grid-container {
     display: grid;
-    height: 100vh;
-    grid-template-columns: 2fr 4fr 2fr;
-    grid-template-rows: 1fr 7fr 1fr;
+    height: 70vh;
+    grid-template-columns: 1fr 4fr 3fr;
+    grid-template-rows: 1fr 6fr 2fr;
     grid-template-areas: "top-left . top-right" "left content right" "bottom-left . bottom-right";
   }
   

@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-<<<<<<< HEAD
 import { dashboardSubject, tutorCounter } from 'src/app/Classes/management';
 import { Student } from 'src/app/Classes/student';
-=======
 import { CardData } from 'src/app/shared/models';
->>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
 import { ApiServiceService } from '../../services/api-service.service';
 import { ToastService } from '../../services/toast.service';
 
@@ -47,16 +44,12 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private apiService: ApiServiceService,
-<<<<<<< HEAD
     private toastService: ToastService
   ) {
     this.objtutorCounter  = new tutorCounter();
     this.lstStudent = [];
     this.PietutorCounter = new tutorCounter();
-  }
-=======
-    private toastService: ToastService)
-    {
+
       this.dashboardCards = [
         {
           title: 'Total Students',
@@ -75,7 +68,6 @@ export class DashboardComponent implements OnInit {
         }
       ]
     }
->>>>>>> 5750190aaa7b28c3ce61e7bab4d3a2d5a37b2d63
 
   ngOnInit(): void {
     this.getDetails();

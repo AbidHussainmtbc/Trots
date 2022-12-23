@@ -1,0 +1,80 @@
+
+.add-subj{
+    // background-color: #F0AE00
+
+    background: linear-gradient(0deg, #5FA6F2, #5FA6F2),
+    linear-gradient(0deg, #7BBAFD, #7BBAFD);
+    
+}
+.add-subj img{
+    height: 56px;
+    padding: 5px;
+}
+
+.small-text{
+    color: green;
+    font-size: 8px;
+}
+
+.container{
+    background: #F5F5F5;
+    background-color:#F5F5F5;
+}
+
+.timesheet{
+    background: #FFFFFF;
+    background-color:#FFFFFF;
+}
+.timesheet_span{
+    background: #F5F5F5;
+    background-color:#F5F5F5;
+}
+
+.btn-teacher-subject{
+    font-size: 10px;
+    width: 60px;
+    margin: 3px;
+}
+
+.table thead tr th {
+    font-size: 10px;
+}
+
+.table tbody td {
+    font-size: 10px;
+}
+
+
+.table tbody tr th {
+    font-size: 10px;
+}
+
+.table tbody td button {
+    height: 20px;
+    font-size: 7px;
+}
+
+.timeFrameBackgroung{
+    background: #7BBAFD;
+    background-color:#7BBAFD;
+}
+
+.active-time{
+    padding:5px ;
+    color: #F000CA; 
+    background: #e6b8de; 
+    border-radius:  3px
+}
+.active-time{
+    padding:5px ;
+    color: #F000CA; 
+    background: #e6b8de; 
+    border-radius:  3px
+}
+
+.away-time{
+  padding:5px ;
+  color: #007DF0;
+  background: #9cb7ccfd;
+  border-radius:  3px
+}

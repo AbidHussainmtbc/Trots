@@ -1,0 +1,52 @@
+<div class="container">
+
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <b>Classes Details</b> (Students)
+    </div>
+    <div class="row  p-2 mt-3  subject-bg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">select</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Students Name</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of lstCorpStudent ; let i= index">
+                    <td>
+                        <input class="form-check-input " type="checkbox" [(ngModel)]= "s.selected" (click)="stdAdded(s.id)" id="flexCheckDefault">
+                    </td>
+                    <td scope="row">
+                        {{s.id}}
+                    </td>
+                    <td>
+                        {{s.firstname}} &nbsp;{{s.lastname}}
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/std-del.png"
+                        (click)="stdDeleted()">
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="row m-3">
+        <div class="d-flex col-md-12 col-sm-12 mt-4 d-flex justify-content-end">
+            <button pButton type="Add Student" label="Add Student" class="ui-button-primary"
+            (click)="SaveandClose()"
+            *ngIf="objViewDeleteStudent.isView == false">
+            </button>
+
+            <button pButton type="Update Student" 
+            (click)="SaveandClose()"
+            label="Update Student" class="ui-button-primary"
+                *ngIf="objViewDeleteStudent.isView == true">
+            </button>
+        </div>
+    </div>
+</div>

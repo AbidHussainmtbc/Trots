@@ -1,0 +1,49 @@
+.border {
+    border: 5px solid #4F98E4 !important;
+    border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.border_Gray {
+    border: 5px solid #A182F1 !important;
+    border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.border_subject {
+    border: 5px solid #3B5999 !important;
+    border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+.table_bg{
+    background-color: #ffffff;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.img {
+    max-width: 30%;
+    height: auto;
+}
+.subjectbg{
+    padding:5%;
+    color:#F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+.cls{
+    color: #B1BAC5;
+    font-size: 13px;
+}
+.DateTime{
+    font-size: 12px;
+}
+.subjectbg_card{
+    padding:5%;
+    color:#F0AE00;
+    background: rgba(202, 41, 249, 0.12)
+}
+.radious_card{
+  border-radius: 8px 8px;
+  font-size: 12px;
+}
+.icon-cog {
+    color: blue;
+  }

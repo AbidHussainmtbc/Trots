@@ -1,0 +1,83 @@
+<div class="container m-1 ">
+    <div class="row  p-2 mt-3 m-2 rounded d-flex flex-row-reverse bg-light">
+        <div class="col-lg-3 col-md-3 col-sm-4 h-50 d-inline-block rounded add-subj">
+            <div class="img d-inline-block">
+                <img src="/assets/images/add-subject-img.PNG">
+                <span class="text-white" (click)="open()">Add Subject</span>
+            </div>
+        </div>
+    </div>
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <button type="button" class="btn btn-outline-primary btn-1">English</button>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <button type="button" class="btn btn-outline-secondary btn-2">Maths</button>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <button type="button" class="btn btn-outline-success btn-3">Physics</button>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <button type="button" class="btn btn-outline-danger btn-4">Chemistry</button>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <button type="button" class="btn btn-outline-warning  btn-5">History</button>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-4">
+            <button type="button" class="btn btn-outline-info btn-6">Biology</button>
+        </div>
+    </div>
+
+    <div class="row  p-2 mt-3 m-2 rounded bg-light">
+        <b>Classes Details</b> (Students)
+    </div>
+    <div class="row  p-2 mt-3  subject-bg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Students</th>
+                    <th scope="col">Teachers</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of Temp_lstBookings ; let i= index">
+                    <th scope="row">{{s.id}}</th>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/students.png">
+                        <span>{{s.totalStudents}}</span>       
+                    </td>
+                    <td>
+                        <span> {{s.firstName}} &nbsp; {{s.lastName}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/calender.png">
+                        <span>{{s.sessionDate}}</span>
+                    </td>
+                    <td>
+                        <img class="tbl-img-student" src="/assets/images/clock-yellow.png">
+                        <span>{{s.timeFrom}} : {{s.timeTo}}</span>
+                    </td>
+
+                    <td>
+                        <button type="button" class="btn btn-outline-primary btn-1">{{s.subjectName}}</button>
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" (click)="Previous()">Previous</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next(1)">1</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next(2)">2</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next(3)">3</a></li>
+              <li class="page-item"><a class="page-link" (click)="Next('')">Next</a></li>
+            </ul>
+          </nav>
+    </div>
+</div>

@@ -23,6 +23,10 @@ import { DeviceSelectComponent } from './Twillio/settings/device-select.componen
 import { DeviceService } from './shared/services/device.service';
 import { VideoChatService } from './shared/services/videochat.service';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { SubjectModelComponent } from './corporate-accounts/subject-model/subject-model.component';
+import { ScheduleClassesModalComponent } from './corporate-accounts/schedule-classes-modal/schedule-classes-modal.component';
+import { AddComponent } from './corporate-accounts/add/add.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +37,8 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
     CameraComponent,
     SettingsComponent,
     DeviceSelectComponent,
-    // ActivityIndicatorComponent,
+    SubjectModelComponent,
+    ScheduleClassesModalComponent
   ],
   imports: [
     // CommonModule, 
@@ -56,8 +61,17 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
     AngularSvgIconModule.forRoot(),
     HttpClientModule,
     SharedModule,
-    NgbModule
-  ],
+    NgbModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+      
+    }) ],
   providers: [
     DialogService,
     MessageService,
@@ -66,6 +80,7 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
     DeviceService, VideoChatService
     // , StorageService
   ],
+  entryComponents: [SubjectModelComponent,ScheduleClassesModalComponent, AddComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

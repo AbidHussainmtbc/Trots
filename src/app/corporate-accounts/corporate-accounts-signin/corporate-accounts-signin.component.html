@@ -1,0 +1,80 @@
+<app-overlay *ngIf="isLoading"></app-overlay>
+<div class="container-wrapper">
+    <div class="col-lg-6 col-md-12 col-sm-12 login-form flex-column justify-content-around">
+        <div class="d-flex justify-content-center">
+            <svg-icon class="trot-logo" name="app-logo"></svg-icon>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <img class="mw-90" src="assets/images/auth-bg.png" alt="">
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <h3 class="powered-by-text">Powered by <b>Techbloom</b></h3>
+        </div>
+    </div>
+
+    <div class="col-lg-5 col-md-12 col-sm-12 login-form flex-column">
+        <form [formGroup]="loginForm" (submit)="signIn()" autocomplete="off">
+            <div class="d-flex col-lg-12 col-md-12 col-sm-12 my-3 p-3">
+                <h1 class="login-msg">Sign in to your Account</h1>
+            </div>
+
+            <div class="d-flex col-md-12 col-sm-12 col-md-12 text-center">
+
+                <button pButton type="button" label="As a Teacher" class=" ui-button-top mx-1"
+                    [disabled]="isTeacher"
+                    [ngClass]="{'ui-button-primary': isTeacher}"
+                    (click)="Teacher()" >
+                </button>
+                <button pButton type="submit" label="As a Student" class=" ui-button-top mx-1"
+                    [disabled]="isStudent"
+                    [ngClass]="{'ui-button-primary': isStudent}"
+                    (click)="Student()">
+                </button>
+               
+                <button pButton type="submit" label="Corporate Acc" class="ui-button-top mx-1"
+                    [disabled]="iscarporateAccount"
+                    (click)="Corporate()"
+                    [ngClass]="{'ui-button-primary': iscarporateAccount}"
+                    >
+                </button>
+
+
+            </div>
+            <div class="d-flex col-md-12 col-sm-12 login-section">
+                <app-form-control class="mt-2 w-100">
+                    <svg-icon name="user"></svg-icon>
+                    <input class="input-style" type="text" formControlName="username" id="username" pInputText
+                        placeholder="Username" [(ngModel)]="objloginClass.email"  autocomplete="off">
+                </app-form-control>
+            </div>
+
+            <div class="d-flex col-md-12 col-sm-12 login-section mt-2">
+
+                <app-form-control class="mt-2 w-100 input-append">
+                    <svg-icon name="lock"></svg-icon>
+
+                    <input class="input-style" [type]="password" pInputText formControlName="password" id="password"
+                        placeholder="Password" autocomplete="off"
+                        [(ngModel)]="objloginClass.password">
+                </app-form-control>
+                <i class="fa fa-eye mt-4" aria-hidden="true" (click)="onClick()" *ngIf="!show"></i>
+                <i class="fa fa-eye-slash mt-4" aria-hidden="true" (click)="onClick()" *ngIf="show"></i>
+            </div>
+
+            <div class="d-flex col-md-12 col-sm-12 login-section mt-4">
+                <div class="col-lg-10">
+                    <p-checkbox [binary]="true" formControlName="rememberMe" label="Remember Me"></p-checkbox>
+                </div>
+            </div>
+
+            <div class="d-flex col-md-12 col-sm-12 mt-4">
+                <button pButton type="submit" label="Login" class="ui-button-primary w-80"
+                    [disabled]="isLoading"></button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
